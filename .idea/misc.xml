@@ -11,10 +11,12 @@
         <option value="$PROJECT_DIR$/gmall-oms/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-sms/pom.xml" />
         <option value="$PROJECT_DIR$/gmall-wms/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-generator/pom.xml" />
+        <option value="$PROJECT_DIR$/gmall-gateway/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

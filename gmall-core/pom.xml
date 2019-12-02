@@ -15,7 +15,6 @@
         <mybatisplus.version>3.0.7.1</mybatisplus.version>
         <nacos.version>0.2.2.RELEASE</nacos.version>
         <mybatisplus.version>3.0.7.1</mybatisplus.version>
-        <mysql.version>5.1.46</mysql.version>
         <swagger.version>2.9.2</swagger.version>
     </properties>
 
@@ -50,7 +49,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
+            <version>5.1.46</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
         <dependency>
