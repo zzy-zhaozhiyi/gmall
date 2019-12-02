@@ -1,3 +1,9 @@
+.idea/
+*.iml
+mvnw*
+.mvn
+
+
 # Compiled class file
 *.class
 
@@ -21,3 +27,21 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+gmall-admin/out/
+gmall-admin/target/generated-sources/
+gmall-admin/target/generated-test-sources/
+gmall-oms/.gitignore
+gmall-oms/pom.xml
+gmall-oms/src/
+gmall-pms/.gitignore
+gmall-pms/pom.xml
+gmall-pms/src/
+gmall-sms/.gitignore
+gmall-sms/pom.xml
+gmall-sms/src/
+gmall-ums/.gitignore
+gmall-ums/pom.xml
+gmall-ums/src/
+gmall-wms/.gitignore
+gmall-wms/pom.xml
+gmall-wms/src/
