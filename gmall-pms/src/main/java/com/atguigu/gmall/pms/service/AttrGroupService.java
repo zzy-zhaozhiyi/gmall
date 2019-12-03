@@ -15,7 +15,7 @@ import com.atguigu.core.bean.QueryCondition;
  * @date 2019-12-02 18:52:56
  */
 public interface AttrGroupService extends IService<AttrGroupEntity> {
-
+//进行分页的操作
     PageVo queryPage(QueryCondition params);
 
     PageVo queryByCidPage(Long cid, QueryCondition condition);
