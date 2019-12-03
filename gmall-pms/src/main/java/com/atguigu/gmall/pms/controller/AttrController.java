@@ -29,6 +29,14 @@ import java.util.Arrays;
 public class AttrController {
     @Autowired
     private AttrService attrService;
+    @ApiOperation("根据条件分页查询")
+    @GetMapping
+    public Resp<PageVo> queryByCidTypePage(QueryCondition condition,
+                                           @RequestParam("cid")Long cid,
+                                           @RequestParam(value = "type",required = false)Integer type){
+      PageVo page=  this.attrService.queryByCidTypePage(condition,cid,type);
+      return Resp.ok(page);
+    }
 
     /**
      * 列表
