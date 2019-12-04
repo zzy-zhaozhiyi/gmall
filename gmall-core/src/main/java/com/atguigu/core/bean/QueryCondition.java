@@ -21,7 +21,10 @@ public class QueryCondition {
 
     @ApiModelProperty(name = "order",value = "排序的顺序",required = false)
     private String order;
-
     @ApiModelProperty(name = "asc",value = "系统默认排序",required = false)
     private String asc = "asc";
+
+    @ApiModelProperty(name = "key",value = "查询关键字",required = false)
+    private String key;
+
 }

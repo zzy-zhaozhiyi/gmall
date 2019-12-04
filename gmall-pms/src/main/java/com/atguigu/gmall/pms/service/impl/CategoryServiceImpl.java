@@ -32,14 +32,18 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     }
 
     @Override
-    public List<CategoryEntity> queryCategory(Integer level, Long parentId) {
+    public List<CategoryEntity> queryCategory(Integer level, Long parentCid) {
+        // 构造查询条件
         QueryWrapper<CategoryEntity> wrapper = new QueryWrapper<>();
-        if(level!=0){
-            wrapper.eq("cat_level",level);
+        // 如果level为0，说明查询所有的级别
+        if (level != 0) {
+            wrapper.eq("cat_level", level);
         }
-        if(parentId!=null){
-            wrapper.eq("parent_id",parentId);
+        // 如果parentCid为null，说明用户没有传该字段，查询所有
+        if (parentCid != null){
+            wrapper.eq("parent_cid", parentCid);
         }
+
         return this.categoryDao.selectList(wrapper);
     }
 

@@ -13,11 +13,10 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
-
+import java.util.List;
 
 /**
  * 属性分组
- *
  * @author zhaozhiyi
  * @email 962815967@qq.com
  * @date 2019-12-02 18:52:56
@@ -29,7 +28,13 @@ public class AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
 
+@ApiOperation("查询三级分类下的分组及其规格参数")
+@GetMapping("/withattrs/cat/{catId}")
+public Resp<List<AttrGroupVO>> queryAttrGroupVoByCatId(@PathVariable("catId")Long catId){
+   List<AttrGroupVO> attrGroupVOS =  this.attrGroupService.queryAttrGroupVoByCatId(catId);
+   return  Resp.ok(attrGroupVOS);
 
+}
 
     @ApiOperation("根据分组id查询分组及组下的规格参数")
     @GetMapping("withattr/{gid}")

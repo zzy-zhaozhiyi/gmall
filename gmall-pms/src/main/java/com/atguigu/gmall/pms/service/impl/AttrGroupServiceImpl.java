@@ -37,12 +37,12 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
     @Override
     public AttrGroupVO queryById(Long gid) {
 
-        // 查询分组
+        // 查询分组，这是三表联查的典型案例
         AttrGroupVO attrGroupVO = new AttrGroupVO();
         AttrGroupEntity attrGroupEntity = this.attrGroupDao.selectById(gid);
         BeanUtils.copyProperties(attrGroupEntity, attrGroupVO);
 
-        // 查询分组下的关联关系
+        // 查询分组下的关联关系，一个分组下可以有多个关联关系
         List<AttrAttrgroupRelationEntity> relations = this.relationDao.selectList(new QueryWrapper<AttrAttrgroupRelationEntity>().eq("attr_group_id", gid));
         // 判断关联关系是否为空，如果为空，直接返回
         if (CollectionUtils.isEmpty(relations)){
@@ -58,6 +58,16 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
 
         return attrGroupVO;
     }
+
+    @Override
+    public List<AttrGroupVO> queryAttrGroupVoByCatId(Long catId) {
+        //根据分类的id来查询所有的attrgroupentities的集合
+        List<AttrGroupEntity> attrGroupEntities = this.list(new QueryWrapper<AttrGroupEntity>().eq("catelog_id", catId));
+//通过调用上面的方法进行操作的，
+        return  attrGroupEntities.stream().map(attrGroupEntity -> this.queryById(attrGroupEntity.getAttrGroupId())).collect(Collectors.toList());
+
+    }
+
     @Override
     public PageVo queryPage(QueryCondition params) {
         IPage<AttrGroupEntity> page = this.page(

@@ -29,12 +29,12 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @ApiOperation("根据分类登记或者父id查询分类")
+    @ApiOperation("根据分类等级或者父id查询分类")
     @GetMapping
-    public Resp<List<CategoryEntity>> queryCategory(@RequestParam(value = "level", defaultValue = "0") Integer level
-            , @RequestParam(value = "parentId", required = false) Long parentId) {
-        List<CategoryEntity> categoryEntities = this.categoryService.queryCategory(level, parentId);
-        return Resp.ok(categoryEntities);
+    public Resp<List<CategoryEntity>> queryCategory(@RequestParam(value="level", defaultValue = "0")Integer level
+            , @RequestParam(value="parentCid", required = false)Long parentCid){
+        List<CategoryEntity> categoryEntityList = this.categoryService.queryCategory(level, parentCid);
+        return Resp.ok(categoryEntityList);
     }
 
 
