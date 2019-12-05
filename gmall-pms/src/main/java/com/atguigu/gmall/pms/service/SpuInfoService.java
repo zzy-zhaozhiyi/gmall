@@ -3,6 +3,7 @@ package com.atguigu.gmall.pms.service;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.gmall.pms.entity.SpuInfoEntity;
+import com.atguigu.gmall.pms.vo.SpuInfoVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 
@@ -20,5 +21,6 @@ public interface SpuInfoService extends IService<SpuInfoEntity> {
     PageVo querySpuInfo(QueryCondition condition, Long catId);
 
 
+    void saveSpuInfoVo(SpuInfoVo spuInfoVo);
 }
 

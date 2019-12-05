@@ -5,6 +5,7 @@ import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
 import com.atguigu.gmall.pms.entity.SpuInfoEntity;
 import com.atguigu.gmall.pms.service.SpuInfoService;
+import com.atguigu.gmall.pms.vo.SpuInfoVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,8 +69,8 @@ public class SpuInfoController {
     @ApiOperation("保存")
     @PostMapping("/save")
     @PreAuthorize("hasAuthority('pms:spuinfo:save')")
-    public Resp<Object> save(@RequestBody SpuInfoEntity spuInfo) {
-        spuInfoService.save(spuInfo);
+    public Resp<Object> saveSpuInfoVo(@RequestBody SpuInfoVo spuInfoVo) {
+        spuInfoService.saveSpuInfoVo(spuInfoVo);
 
         return Resp.ok(null);
     }
