@@ -16,6 +16,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -38,6 +39,7 @@ public class SkuBoundsServiceImpl extends ServiceImpl<SkuBoundsDao, SkuBoundsEnt
     }
 
     @Override
+    @Transactional
     public void saveSkuSaleVo(SkuSaleVo skuSaleVo) {
         // 3.1. 保存sms_sku_bounds
         SkuBoundsEntity skuBoundsEntity = new SkuBoundsEntity();

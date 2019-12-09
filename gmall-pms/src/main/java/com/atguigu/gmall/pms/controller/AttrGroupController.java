@@ -3,9 +3,9 @@ package com.atguigu.gmall.pms.controller;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
-import com.atguigu.gmall.pms.vo.AttrGroupVO;
 import com.atguigu.gmall.pms.entity.AttrGroupEntity;
 import com.atguigu.gmall.pms.service.AttrGroupService;
+import com.atguigu.gmall.pms.vo.AttrGroupVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +47,6 @@ public Resp<List<AttrGroupVO>> queryAttrGroupVoByCatId(@PathVariable("catId")Lon
     @GetMapping("/{cid}")
     public Resp<PageVo> queryByCidPage(@PathVariable("cid") Long cid, QueryCondition condition) {
         PageVo pagevo = this.attrGroupService.queryByCidPage(cid, condition);
-        System.out.println("nihao===============================");
         return Resp.ok(pagevo);
     }
 

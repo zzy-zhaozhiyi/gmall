@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 8086
 spring:
   cloud:
     gateway:
@@ -27,3 +27,6 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+  elasticsearch:
+    jest:
+      username: http://192.168.191.128:9200
