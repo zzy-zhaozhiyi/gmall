@@ -6,6 +6,7 @@ import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.gmall.pms.dao.CategoryDao;
 import com.atguigu.gmall.pms.entity.CategoryEntity;
 import com.atguigu.gmall.pms.service.CategoryService;
+import com.atguigu.gmall.pms.vo.CategoryVo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -45,6 +46,13 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         }
 
         return this.categoryDao.selectList(wrapper);
+    }
+
+    @Override
+    public   List<CategoryVo> querySubCategory(Long pid) {
+
+        List<CategoryVo> categoryVos = this.categoryDao.querySubCategory(pid);
+        return categoryVos;
     }
 
 }

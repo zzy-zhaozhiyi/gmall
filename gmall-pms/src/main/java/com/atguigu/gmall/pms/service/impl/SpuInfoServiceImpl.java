@@ -17,9 +17,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.seata.spring.annotation.GlobalTransactional;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -46,8 +49,11 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     private SkuSaleAttrValueService skuSaleAttrValueService;
     @Autowired
     private GmallSmsClient gmallSmsClient;
-
-
+    @Autowired
+    private AmqpTemplate amqpTemplate;
+    //将交换机的名字注入进来
+    @Value("${item.rabbitmq.exchange}")
+    private String EXCHANGE_NAME;
 
 
     @Override
@@ -98,7 +104,13 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
         //2、保存sku相关的信息,不能批量保存，因为他们都是独立的表,每次保存sku相关信息也会保存sms打折等这些信息
         this.saveSkuInfoWithSaleInfo(spuInfoVo, spuId);
+        //就要用上这个方法
+        sendMsg("insert", spuId);
+    }
 
+    @ApiOperation("这是发送rabbitmq的消息方法")
+    private void sendMsg(String type, Long spuId) {
+        this.amqpTemplate.convertAndSend(EXCHANGE_NAME, "item." + type, spuId);
     }
 
     private void saveSkuInfoWithSaleInfo(SpuInfoVo spuInfoVo, Long spuId) {
@@ -144,7 +156,6 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                 SkuSaleVo skuSaleVo = new SkuSaleVo();
                 BeanUtils.copyProperties(skuInfoVo, skuSaleVo);
                 skuSaleVo.setSkuId(skuId);
-                System.out.println("==============这是远程调用传的参数" + skuSaleVo);
 
                 gmallSmsClient.saveSkuSaleVo(skuSaleVo);
 

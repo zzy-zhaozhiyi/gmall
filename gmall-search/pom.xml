@@ -12,7 +12,7 @@
     <artifactId>gmall-search</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>gmall-search</name>
-    <description>Demo project for Spring Boot</description>
+    <description>谷粒商城搜索系统</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -32,6 +32,20 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>gmall-pms-interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>gmall-wms-interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
@@ -46,6 +60,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.6</version>
         </dependency>
 
         <dependency>

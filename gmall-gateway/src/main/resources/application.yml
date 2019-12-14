@@ -1,5 +1,5 @@
 server:
-  port: 8086
+  port: 8888
 spring:
   cloud:
     gateway:
@@ -24,6 +24,12 @@ spring:
           uri: lb://wms-service
           predicates:
             - Path=/wms/**
+        - id: index-route
+        uri: lb://index-service
+          predicates:
+            - Path=/api/index/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*), $\{segment}
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
