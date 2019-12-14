@@ -1,21 +1,17 @@
 package com.atguigu.gmall.index.service.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.index.annotation.GmallCache;
 import com.atguigu.gmall.index.feign.GmallPmsClient;
 import com.atguigu.gmall.index.service.IndexService;
 import com.atguigu.gmall.pms.entity.CategoryEntity;
 import com.atguigu.gmall.pms.vo.CategoryVo;
-import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
-import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author zzy
@@ -39,6 +35,18 @@ public class serviceImpl implements IndexService {
     }
 
     @Override
+    @GmallCache(prefix = "index:cates:")
+    public List<CategoryVo> querySubCategery(Long pid) {
+
+
+
+        Resp<List<CategoryVo>> listResp = gmallPmsClient.querySubCategory(pid);
+        return listResp.getData();
+}
+    /*
+    没有手写注解和AOP之前的方法，改造后的在上
+     */
+   /* @Override
     public List<CategoryVo> querySubCategery(Long pid) {
         // 1. 判断缓存中有没有
         String cateJson = this.stringRedisTemplate.opsForValue().get(KEY_PREFIX + pid);
@@ -73,5 +81,5 @@ public class serviceImpl implements IndexService {
         lock.unlock();
 
         return listResp.getData();
-    }
+    }*/
 }
