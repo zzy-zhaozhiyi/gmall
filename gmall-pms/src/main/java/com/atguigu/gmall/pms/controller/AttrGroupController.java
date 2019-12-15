@@ -6,6 +6,7 @@ import com.atguigu.core.bean.Resp;
 import com.atguigu.gmall.pms.entity.AttrGroupEntity;
 import com.atguigu.gmall.pms.service.AttrGroupService;
 import com.atguigu.gmall.pms.vo.AttrGroupVO;
+import com.atguigu.gmall.pms.vo.ItemGroupVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import java.util.List;
 
 /**
  * 属性分组
+ *
  * @author zhaozhiyi
  * @email 962815967@qq.com
  * @date 2019-12-02 18:52:56
@@ -28,21 +30,29 @@ public class AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
 
-@ApiOperation("查询三级分类下的分组及其规格参数")
-@GetMapping("/withattrs/cat/{catId}")
-public Resp<List<AttrGroupVO>> queryAttrGroupVoByCatId(@PathVariable("catId")Long catId){
-   List<AttrGroupVO> attrGroupVOS =  this.attrGroupService.queryAttrGroupVoByCatId(catId);
-   return  Resp.ok(attrGroupVOS);
+    @ApiOperation("查询规格参数以及下面的参数值")
+    @GetMapping("item/group/{spuid}/{catid}")
+    public Resp<List<ItemGroupVO>> queryItemGroupVoBySpuIdAndcatId(@PathVariable("spuid") Long spuid, @PathVariable("catid") Long catid) {
+        List<ItemGroupVO> itemGroupVOS = this.attrGroupService.queryItemGroupVoBySpuIdAndcatId(spuid, catid);
+        return Resp.ok(itemGroupVOS);
+    }
 
-}
+    @ApiOperation("查询三级分类下的分组及其规格参数")
+    @GetMapping("/withattrs/cat/{catId}")
+    public Resp<List<AttrGroupVO>> queryAttrGroupVoByCatId(@PathVariable("catId") Long catId) {
+        List<AttrGroupVO> attrGroupVOS = this.attrGroupService.queryAttrGroupVoByCatId(catId);
+        return Resp.ok(attrGroupVOS);
+
+    }
 
     @ApiOperation("根据分组id查询分组及组下的规格参数")
     @GetMapping("withattr/{gid}")
-    public Resp<AttrGroupVO> queryById(@PathVariable("gid")Long gid){
+    public Resp<AttrGroupVO> queryById(@PathVariable("gid") Long gid) {
 
         AttrGroupVO attrGroupVO = this.attrGroupService.queryById(gid);
         return Resp.ok(attrGroupVO);
     }
+
     @ApiOperation("根据三级分类id分页查询")
     @GetMapping("/{cid}")
     public Resp<PageVo> queryByCidPage(@PathVariable("cid") Long cid, QueryCondition condition) {

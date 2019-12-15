@@ -12,8 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
-
-
+import java.util.List;
 
 
 /**
@@ -29,6 +28,14 @@ import java.util.Arrays;
 public class SkuSaleAttrValueController {
     @Autowired
     private SkuSaleAttrValueService skuSaleAttrValueService;
+
+    //，参考京东页面，展示的时候是一个sku,但是下面有好多个都是同一个spu的
+    @ApiOperation("根据spuid来查询其下面的所有sku信息")
+    @GetMapping("{spuid}")
+    public  Resp<List<SkuSaleAttrValueEntity>> querySkuSaleAttrValueBySpuId(@PathVariable("spuid")Long spuid){
+      List<SkuSaleAttrValueEntity>  skuSaleAttrValueEntities= this.skuSaleAttrValueService.querySkuSaleAttrValueBySpuId(spuid);
+      return Resp.ok(skuSaleAttrValueEntities);
+    }
 
     /**
      * 列表

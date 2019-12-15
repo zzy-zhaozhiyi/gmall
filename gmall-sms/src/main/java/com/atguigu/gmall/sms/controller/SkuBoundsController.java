@@ -5,6 +5,7 @@ import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
 import com.atguigu.gmall.sms.entity.SkuBoundsEntity;
 import com.atguigu.gmall.sms.service.SkuBoundsService;
+import com.atguigu.gmall.sms.vo.SaleVO;
 import com.atguigu.gmall.sms.vo.SkuSaleVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +14,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -29,12 +31,21 @@ public class SkuBoundsController {
     @Autowired
     private SkuBoundsService skuBoundsService;
 
+
+    @ApiOperation(("根据skuid查询3个营销信息"))
+    @GetMapping("{skuid}")
+    public Resp<List<SaleVO>> querySalesVoBySkuId(@PathVariable("skuid") Long skuid) {
+        List<SaleVO> saleVOS = this.skuBoundsService.querySalesVoBySkuId(skuid);
+        return Resp.ok(saleVOS);
+    }
+
+
     @ApiOperation("处理pms远程调用新增spu的方法")
     @PostMapping("/sku/sale/save")
-    public Resp<Object> saveSkuSaleVo(@RequestBody SkuSaleVo skuSaleVo){
-this.skuBoundsService.saveSkuSaleVo(skuSaleVo);
+    public Resp<Object> saveSkuSaleVo(@RequestBody SkuSaleVo skuSaleVo) {
+        this.skuBoundsService.saveSkuSaleVo(skuSaleVo);
 
-        System.out.println("这里是SMS的skuboundscontrller实现保存" );
+        System.out.println("这里是SMS的skuboundscontrller实现保存");
 
         return Resp.ok(null);
     }

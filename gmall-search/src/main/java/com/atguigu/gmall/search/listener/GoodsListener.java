@@ -77,7 +77,7 @@ public class GoodsListener {
 
                 goodsVO.setSale(0l);
                 //设置时间
-                Resp<SpuInfoEntity> spuInfoEntityResp = this.pmsClient.info(spuId);
+                Resp<SpuInfoEntity> spuInfoEntityResp = this.pmsClient.querySpuInfoBySpuId(spuId);
                 SpuInfoEntity spuInfoEntity = spuInfoEntityResp.getData();
                 goodsVO.setCreatTime(spuInfoEntity.getCreateTime());
 
