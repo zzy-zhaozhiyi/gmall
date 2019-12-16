@@ -15,7 +15,7 @@ import java.util.List;
  * @create 2019-12-09 18:13
  */
 @Data
-@Document(indexName = "goods", type = "info",shards = 3,replicas = 2)
+@Document(indexName = "goods", type = "info", shards = 3, replicas = 2)
 public class GoodsVO {
     @Id
     private Long skuId;  //skuId

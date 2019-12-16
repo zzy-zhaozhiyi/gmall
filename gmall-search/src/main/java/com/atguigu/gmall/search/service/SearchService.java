@@ -70,7 +70,7 @@ public class SearchService {
         SearchHits hits = response.getHits();
         responseVO.setTotal(hits.totalHits);
         //2、即系品牌的结果集
-        SearchResponseAttrVO brand = new SearchResponseAttrVO();//brand类型是这个vo,先new出来，在网里面添值
+        SearchResponseAttrVO brand = new SearchResponseAttrVO();//brand类型是这个vo,先new出来，在往里面添值
         brand.setName("品牌");//在页面显示的时候，就是固定的字段
         //2.1查询品牌聚合的结果集，在response中,得到聚合转成map ，这样根据聚合的名称得到每个聚合下面的桶
         Map<String, Aggregation> aggregationMap = response.getAggregations().asMap();
@@ -173,7 +173,7 @@ public class SearchService {
         //1.1构建查询条件
         boolQueryBuilder.must(QueryBuilders.matchQuery("title", keyword).operator(Operator.AND));
         //1.2构建过滤条件
-        //1.2.1根据品牌过滤
+        //1.2.1根据品牌id过滤
         String[] brand = searchParam.getBrand();//得到的是品牌的Id不是品牌，实体类写得不好
         if (brand != null & brand.length != 0) {
             boolQueryBuilder.filter(QueryBuilders.termsQuery("brandId", brand));

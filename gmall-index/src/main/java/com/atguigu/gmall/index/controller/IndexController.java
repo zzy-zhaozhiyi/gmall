@@ -27,9 +27,10 @@ public class IndexController {
         List<CategoryEntity> categoryEntities = this.indexService.querylevel1Categories();
         return Resp.ok(categoryEntities);
     }
-       @GetMapping("/cates/{pid}")
-           public Resp<List<CategoryVo>> querySubCategery(@PathVariable("pid")Long pid){
-       List<CategoryVo> categoryVos= this.indexService.querySubCategery(pid);
-       return Resp.ok(categoryVos);
-           }
+
+    @GetMapping("/cates/{pid}")
+    public Resp<List<CategoryVo>> querySubCategery(@PathVariable("pid") Long pid) {
+        List<CategoryVo> categoryVos = this.indexService.querySubCategery(pid);
+        return Resp.ok(categoryVos);
+    }
 }
