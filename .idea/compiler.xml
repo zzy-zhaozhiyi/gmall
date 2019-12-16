@@ -20,13 +20,16 @@
         <module name="gmall-gateway" />
         <module name="gmall-index" />
         <module name="gmall-wms-interface" />
+        <module name="gmall-ums-interface" />
         <module name="gmall-core" />
+        <module name="gmall-auth" />
         <module name="gmall-search" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="gmall" target="1.8" />
       <module name="gmall-admin" target="1.8" />
+      <module name="gmall-auth" target="1.8" />
       <module name="gmall-core" target="1.8" />
       <module name="gmall-gateway" target="1.8" />
       <module name="gmall-generator" target="1.8" />
@@ -40,6 +43,7 @@
       <module name="gmall-sms" target="1.8" />
       <module name="gmall-sms-interface" target="1.8" />
       <module name="gmall-ums" target="1.8" />
+      <module name="gmall-ums-interface" target="1.8" />
       <module name="gmall-wms" target="1.8" />
       <module name="gmall-wms-interface" target="1.8" />
       <module name="index-service" target="1.8" />
@@ -48,6 +52,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="gmall-admin" options="-parameters" />
+      <module name="gmall-auth" options="-parameters" />
       <module name="gmall-gateway" options="-parameters" />
       <module name="gmall-generator" options="-parameters" />
       <module name="gmall-index" options="-parameters" />

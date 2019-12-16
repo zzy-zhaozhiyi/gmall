@@ -1,0 +1,14 @@
+server:
+  port: 8089
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+gmall:
+  jwt:
+    pubKeyPath: D:\workspace_idea0722\rsa\\rsa.pub # \u516C\u94A5\u5730\u5740
+    priKeyPath: D:\workspace_idea0722\rsa\\rsa.pri # \u79C1\u94A5\u5730\u5740
+    secret: sf3423jsdf#3$@FDS32
+    expire: 30 # \u8FC7\u671F\u65F6\u95F4,\u5355\u4F4D\u5206\u949F
+    cookieName: GMALL_TOKEN
