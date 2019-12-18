@@ -8,7 +8,9 @@ import com.atguigu.gmall.pms.service.SpuInfoService;
 import com.atguigu.gmall.pms.vo.SpuInfoVo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +31,11 @@ import java.util.List;
 public class SpuInfoController {
     @Autowired
     private SpuInfoService spuInfoService;
-
+    @Autowired
+    private AmqpTemplate amqpTemplate;
+    //将交换机的名字注入进来
+    @Value("${item.rabbitmq.exchange}")
+    private String EXCHANGE_NAME;
 
     @ApiOperation("查询商品列表")
     @GetMapping
@@ -80,6 +86,7 @@ return Resp.ok(list);
         spuInfoService.saveSpuInfoVo(spuInfoVo);
 
         return Resp.ok(null);
+
     }
 
     /**
@@ -90,7 +97,8 @@ return Resp.ok(list);
     @PreAuthorize("hasAuthority('pms:spuinfo:update')")
     public Resp<Object> update(@RequestBody SpuInfoEntity spuInfo) {
         spuInfoService.updateById(spuInfo);
-
+        //下行代码完全是为了测验，在购物车cart进行的价格同步
+        this.amqpTemplate.convertAndSend(EXCHANGE_NAME, "item.update" , spuInfo.getId());
         return Resp.ok(null);
     }
 

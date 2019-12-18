@@ -1,6 +1,7 @@
 package com.atguiug.gmall.cart.service;
 
 import com.alibaba.fastjson.JSON;
+import com.atguigu.core.AppConstant;
 import com.atguigu.core.bean.Resp;
 import com.atguigu.gmall.pms.entity.SkuInfoEntity;
 import com.atguigu.gmall.pms.entity.SkuSaleAttrValueEntity;
@@ -18,6 +19,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,14 +38,14 @@ public class CartService {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
-    private static final String KEY_PREFIX = "gmall:cart:";
+
 
     public void addCart(CartVO cartvo) {
 
         //先判断是否登录,通过ThreadLocal提供的方法，获得拦截信息
         UserInfo userInfo = LoginInterceptor.getUserInfo();
-        String key = KEY_PREFIX;
-        if (userInfo.getId()!= null) {
+        String key = AppConstant.KEY_PREFIX;
+        if (userInfo.getId() != null) {
             key += userInfo.getId();
         } else {
             key += userInfo.getUserKey();
@@ -73,6 +75,12 @@ public class CartService {
             cartvo.setTitle(skuInfoEntity.getSkuTitle());
             cartvo.setPrice(skuInfoEntity.getPrice());
 
+
+            //价格存两份，实时的价格在redis中的结构是{skuid,currentPrice}
+            this.redisTemplate.opsForValue().set(AppConstant.PRICE_PREFIX + skuInfoEntity.getSkuId(), skuInfoEntity.getPrice().toString());
+
+
+
             Resp<List<SkuSaleAttrValueEntity>> value = this.pmsClient.querySkuSaleAttrValueBySkuId(cartvo.getSkuId());
             cartvo.setSaleAttrValues(value.getData());
 
@@ -95,14 +103,22 @@ public class CartService {
     public List<CartVO> queryCart() {
         UserInfo userInfo = LoginInterceptor.getUserInfo();
         //先查未登录状态的购物车，再查登录状态的，这样简便些，利于未登录合并道已登录
-        String unLoginKey = KEY_PREFIX + userInfo.getUserKey();
+        String unLoginKey = AppConstant.KEY_PREFIX + userInfo.getUserKey();
         BoundHashOperations<String, Object, Object> unHasnOps = this.redisTemplate.boundHashOps(unLoginKey);//得到里面的map
         //利用map的一个value方法
         List<Object> values = unHasnOps.values();//将其转化成实体类
         List<CartVO> unLoginVOS = null;//下面要用所以拿出来
         if (!CollectionUtils.isEmpty(values)) {
-            unLoginVOS = values.stream().map(value ->
-                    JSON.parseObject(value.toString(), CartVO.class)//解析第一个是参数是string，value是objet，所以需要强转
+            unLoginVOS = values.stream().map(value -> {
+
+                        CartVO cartVO = JSON.parseObject(value.toString(), CartVO.class);//解析第一个是参数是string，value是objet，所以需要强转
+
+                        String price = this.redisTemplate.opsForValue().get(AppConstant.PRICE_PREFIX + cartVO.getSkuId());
+                        cartVO.setCurrentPrice(new BigDecimal(price));
+
+
+                        return cartVO;
+                    }
             ).collect(Collectors.toList());
         }
 
@@ -111,7 +127,7 @@ public class CartService {
             return unLoginVOS;//就返回未登录的
         }
         //登录，购物车同步
-        String LoginKey = KEY_PREFIX + userInfo.getId();
+        String LoginKey = AppConstant.KEY_PREFIX + userInfo.getId();
         BoundHashOperations<String, Object, Object> loginOps = this.redisTemplate.boundHashOps(LoginKey);
         if (!CollectionUtils.isEmpty(unLoginVOS)) {
 
@@ -122,8 +138,17 @@ public class CartService {
                     String loginJson = loginOps.get(skuId).toString();//之所以转成String是为了解析的需要,第一个参数是String
                     CartVO cartVO = JSON.parseObject(loginJson, CartVO.class);
                     cartVO.setCount(cartVO.getCount() + unLoginVO.getCount());
+                    //添加实时的价格同步
+                    String price = this.redisTemplate.opsForValue().get(AppConstant.PRICE_PREFIX + skuId);
+                    cartVO.setCurrentPrice(new BigDecimal(price));
+
+
                     loginOps.put(skuId, JSON.toJSONString(cartVO));
-                }else{
+
+                } else {
+                        //添加实时的价格同步
+                    String price = this.redisTemplate.opsForValue().get(AppConstant.PRICE_PREFIX + skuId);
+                    unLoginVO.setCurrentPrice(new BigDecimal(price));
 
                     //如果在登录状态中没有的，就添加到里面，必须要放在else中不然会执行。
                     loginOps.put(skuId, JSON.toJSONString(unLoginVO));
@@ -142,7 +167,7 @@ public class CartService {
 
     public void updateCart(CartVO cartVO) {
         //判断登录状态，修改对应状态的cart
-        String key = KEY_PREFIX;
+        String key = AppConstant.KEY_PREFIX;
         UserInfo userInfo = LoginInterceptor.getUserInfo();
         if (userInfo.getId() != null) {
             key += userInfo.getId();
@@ -158,6 +183,10 @@ public class CartService {
             //解析第一个参数字符串，
             CartVO cartVO1 = JSON.parseObject(s, CartVO.class);
             cartVO1.setCount(cartVO.getCount());
+
+            String price = this.redisTemplate.opsForValue().get(AppConstant.PRICE_PREFIX + skuId);
+            cartVO1.setCurrentPrice(new BigDecimal(price));
+
             hashOps.put(skuId, JSON.toJSONString(cartVO1));
         }
 
@@ -166,7 +195,7 @@ public class CartService {
 
     public void deleteCart(Long skuid) {
         UserInfo userInfo = LoginInterceptor.getUserInfo();
-        String key = KEY_PREFIX;
+        String key = AppConstant.KEY_PREFIX;
         if (userInfo.getId() != null) {
             key += userInfo.getId();
         } else {
@@ -176,9 +205,6 @@ public class CartService {
         BoundHashOperations<String, Object, Object> hashOps = this.redisTemplate.boundHashOps(key);
         hashOps.delete(skuid.toString());
         //之所以有tostring,记住redis的结构是<string,<string,object>>
-
-
-
 
 
     }
