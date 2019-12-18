@@ -34,6 +34,6 @@ public class CartListener {
     public void listener(Long spuId) {
         Resp<List<SkuInfoEntity>> listResp = this.pmsClient.querySkusBySpuId(spuId);
         List<SkuInfoEntity> skuInfoEntities = listResp.getData();
-        skuInfoEntities.forEach(skuInfoEntity -> this.redisTemplate.opsForValue().set(AppConstant.PRICE_PREFIX+skuInfoEntity.getSkuId(),skuInfoEntity.getPrice().toString()));
+        skuInfoEntities.forEach(skuInfoEntity -> this.redisTemplate.opsForValue().set(AppConstant.PRICE_PREFIX + skuInfoEntity.getSkuId(), skuInfoEntity.getPrice().toString()));
     }
 }

@@ -1,0 +1,20 @@
+server:
+  port: 8092
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  rabbitmq:
+    host: 192.168.191.128
+    port: 5673 #在虚拟机上我的5672端口被占用
+    username: zzy #rabbitmq的登录名字
+    password: zzy910307
+    virtual-host: /zzy
+  redis:
+    host: 192.168.191.128
+gmall:
+  jwt:
+    pubKeyPath: D:\workspace_idea0722\rsa\\rsa.pub # 公钥地址
+    cookieName: GMALL_TOKEN
+

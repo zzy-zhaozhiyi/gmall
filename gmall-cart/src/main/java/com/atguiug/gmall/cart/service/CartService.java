@@ -3,6 +3,8 @@ package com.atguiug.gmall.cart.service;
 import com.alibaba.fastjson.JSON;
 import com.atguigu.core.AppConstant;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.core.bean.UserInfo;
+import com.atguigu.gmall.cart.vo.CartVO;
 import com.atguigu.gmall.pms.entity.SkuInfoEntity;
 import com.atguigu.gmall.pms.entity.SkuSaleAttrValueEntity;
 import com.atguigu.gmall.sms.vo.SaleVO;
@@ -11,8 +13,6 @@ import com.atguiug.gmall.cart.feign.GmallPmsClient;
 import com.atguiug.gmall.cart.feign.GmallSmsClient;
 import com.atguiug.gmall.cart.feign.GmallWmsClient;
 import com.atguiug.gmall.cart.interceptors.LoginInterceptor;
-import com.atguiug.gmall.cart.vo.CartVO;
-import com.atguiug.gmall.cart.vo.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundHashOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -207,5 +207,13 @@ public class CartService {
         //之所以有tostring,记住redis的结构是<string,<string,object>>
 
 
+    }
+
+    public List<CartVO> queryCheckAndCartByUserId(Long userId) {
+        BoundHashOperations<String, Object, Object> hashOps = this.redisTemplate.boundHashOps(AppConstant.KEY_PREFIX + userId);
+        List<Object> values = hashOps.values();//将其进行解析，还原成购物项
+        //先转化在过滤
+        List<CartVO> cartVOS = values.stream().map(value -> JSON.parseObject(value.toString(), CartVO.class)).filter(CartVO::getCheck).collect(Collectors.toList());
+        return cartVOS;
     }
 }

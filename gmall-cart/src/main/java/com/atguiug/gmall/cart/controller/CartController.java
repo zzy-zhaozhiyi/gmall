@@ -1,8 +1,8 @@
 package com.atguiug.gmall.cart.controller;
 
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.cart.vo.CartVO;
 import com.atguiug.gmall.cart.service.CartService;
-import com.atguiug.gmall.cart.vo.CartVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -47,5 +47,13 @@ public class CartController {
     public Resp<Object> deleteCart(@PathVariable("skuid") Long skuid) {
         this.cartService.deleteCart(skuid);
         return Resp.ok(null);
+    }
+
+    @ApiOperation("根据userId来查询被选中的购物项")
+    @GetMapping("/check/{userId}")
+    public Resp<List<CartVO>> queryCheckAndCartByUserId(@PathVariable("userId") Long userId) {
+        List<CartVO> cartVOS = this.cartService.queryCheckAndCartByUserId(userId);
+
+        return Resp.ok(cartVOS);
     }
 }

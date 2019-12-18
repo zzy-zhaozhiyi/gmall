@@ -1,4 +1,4 @@
-package com.atguiug.gmall.cart.vo;
+package com.atguigu.gmall.order.vo;
 
 import com.atguigu.gmall.pms.entity.SkuSaleAttrValueEntity;
 import com.atguigu.gmall.sms.vo.SaleVO;
@@ -7,22 +7,24 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.util.List;
 
-/**
- * @author zzy
- * @create 2019-12-17 18:14
- */
 @Data
-public class CartVO {
-
+public class OrderItemVO {
+//虽然这里的字段和购物车的差不多，但是为了保证数据的实时性，还是要在数据中再查
     private Long skuId;
-    private String title;
-    private String defaultImage;
-    private BigDecimal price;//加入购物车时的价格
-    private Integer count;
-    private Boolean store;
-    private List<SkuSaleAttrValueEntity> saleAttrValues;
-    private List<SaleVO> sales;
-    private Boolean check;
-    private BigDecimal currentPrice;//这个是数据库的实时价格变动，实现的方法是：缓存+最终一致性（消息队列）
 
+    private String title;
+
+    private String defaultImage;
+
+    private BigDecimal price; // 数据库价格
+
+    private Integer count;
+
+    private Boolean store;
+
+    private List<SkuSaleAttrValueEntity> saleAttrValues;
+
+    private List<SaleVO> sales;
+
+    private BigDecimal weight;
 }
