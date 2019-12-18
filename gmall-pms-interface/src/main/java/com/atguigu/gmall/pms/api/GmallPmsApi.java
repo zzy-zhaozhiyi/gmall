@@ -74,7 +74,9 @@ public interface GmallPmsApi {
     public Resp<List<ItemGroupVO>> queryItemGroupVoBySpuIdAndcatId(@PathVariable("spuid")Long spuid, @PathVariable("catid")Long catid);
 
 
-
+    @ApiOperation("根据skuid查询相关的销售属性")
+    @GetMapping("pms/skusaleattrvalue/sku/{skuid}")
+    public Resp<List<SkuSaleAttrValueEntity>> querySkuSaleAttrValueBySkuId(@PathVariable("skuid") Long skuid);
 
 
 

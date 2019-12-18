@@ -2,7 +2,7 @@ package com.atguigu.gmall.auth.service;
 
 import com.atguigu.core.bean.Resp;
 import com.atguigu.core.utils.JwtUtils;
-import com.atguigu.gmall.auth.conift.JwtProperties;
+import com.atguigu.gmall.auth.config.JwtProperties;
 import com.atguigu.gmall.auth.feign.GmallUmsClient;
 import com.atguigu.gmall.ums.entity.MemberEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +27,9 @@ public class AuthService {
         //远程调用，检验用户名和密码，并判断是否为空
         Resp<MemberEntity> memberEntityResp = this.umsClient.queryMemberByNameAndPassword(username, password);
         MemberEntity memberEntity = memberEntityResp.getData();
+
+        System.out.println(memberEntity+"===========================这里是authService");
+
         if (memberEntity == null) {
             return null;
         }

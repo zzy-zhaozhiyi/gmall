@@ -30,8 +30,13 @@ public class MemberController {
 @ApiOperation("根据用户名和密码查询用户")
 @GetMapping("/query")
 public Resp<MemberEntity> queryMemberByNameAndPassword(@RequestParam("username")String username, @RequestParam("password") String password){
-   MemberEntity memberEntity = this.memberService.queryMemberByNameAndPassword(username,password);
-   return Resp.ok(memberEntity);
+    MemberEntity memberEntity = null;
+    try {
+        memberEntity = this.memberService.queryMemberByNameAndPassword(username,password);
+    } catch (Exception e) {
+        return Resp.fail("查询失败");
+    }
+    return Resp.ok(memberEntity);
 
 }
 

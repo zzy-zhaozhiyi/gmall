@@ -3,7 +3,7 @@ package com.atguigu.gmall.auth.controller;
 import com.atguigu.core.bean.Resp;
 import com.atguigu.core.exception.MemberException;
 import com.atguigu.core.utils.CookieUtils;
-import com.atguigu.gmall.auth.conift.JwtProperties;
+import com.atguigu.gmall.auth.config.JwtProperties;
 import com.atguigu.gmall.auth.service.AuthService;
 import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;

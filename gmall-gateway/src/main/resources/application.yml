@@ -30,9 +30,23 @@ spring:
             - Path=/api/index/**
           filters:
             - RewritePath=/api(?<segment>/?.*), $\{segment}
+           # - Auth
+        - id: index-route
+          uri: lb://cart-service
+          predicates:
+            - Path=/api/cart/**
+          filters:
+            - RewritePath=/api(?<segment>/?.*), $\{segment}
+            #- Auth 加上这个是要携带token的
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
   elasticsearch:
     jest:
       username: http://192.168.191.128:9200
+
+
+gmall:
+  jwt:
+    pubKeyPath: D:\workspace_idea0722\rsa\\rsa.pub # \u516C\u94A5\u5730\u5740
+    cookieName: GMALL_TOKEN

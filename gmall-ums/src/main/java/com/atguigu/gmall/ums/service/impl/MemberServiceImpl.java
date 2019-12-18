@@ -77,10 +77,11 @@ public class MemberServiceImpl extends ServiceImpl<MemberDao, MemberEntity> impl
     @Override
     public MemberEntity queryMemberByNameAndPassword(String username, String password) {
 
+
         //先根据用户的名字进行查询，再用password再次确认
         MemberEntity memberEntity = this.getOne(new QueryWrapper<MemberEntity>().eq("username", username));
         if (memberEntity == null) {
-            throw new MemberException("用户名有误");
+                throw new MemberException("用户名有误");
         }
 
         //要对password进行，比对，就要得到salt,进行解密
