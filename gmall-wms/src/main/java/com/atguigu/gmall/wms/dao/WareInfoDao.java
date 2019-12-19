@@ -1,6 +1,6 @@
 package com.atguigu.gmall.wms.dao;
 
-import com.atguigu.wms.entity.WareInfoEntity;
+import com.atguigu.gmall.wms.entity.WareInfoEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 

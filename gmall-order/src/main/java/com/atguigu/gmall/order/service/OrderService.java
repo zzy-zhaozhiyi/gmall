@@ -8,12 +8,13 @@ import com.atguigu.gmall.order.feign.*;
 import com.atguigu.gmall.order.interceptors.LoginInterceptor;
 import com.atguigu.gmall.order.vo.OrderConfirmVO;
 import com.atguigu.gmall.order.vo.OrderItemVO;
+import com.atguigu.gmall.order.vo.OrderSubmitVO;
 import com.atguigu.gmall.pms.entity.SkuInfoEntity;
 import com.atguigu.gmall.pms.entity.SkuSaleAttrValueEntity;
 import com.atguigu.gmall.sms.vo.SaleVO;
 import com.atguigu.gmall.ums.entity.MemberEntity;
 import com.atguigu.gmall.ums.entity.MemberReceiveAddressEntity;
-import com.atguigu.wms.entity.WareSkuEntity;
+import com.atguigu.gmall.wms.entity.WareSkuEntity;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -133,7 +134,7 @@ public class OrderService {
         }, threadPoolExecutor);
 
 
-        //4、基于雪花算法内置在mybatis的随机数
+        //4、基于雪花算法内置在mybatis的随机数1
         CompletableFuture<Void> tokenCompletableFuture = CompletableFuture.runAsync(() -> {
             String idStr = IdWorker.getIdStr();
             confirmVO.setOrderToken(idStr);
@@ -145,6 +146,24 @@ public class OrderService {
         CompletableFuture.allOf(umsCompletableFuture,memberCompletableFuture,bigSkuCompletableFuture,tokenCompletableFuture).join();
 
         return confirmVO;
+
+    }
+
+    public void submit(OrderSubmitVO submitVO) {
+
+        // 1. 防重复提交，查询redis中有没有orderToken信息，有，则是第一次提交，放行并删除redis中的orderToken
+
+        // 2. 校验价格，总价一致放行
+
+
+        // 3. 校验库存是否充足并锁定库存，一次性提示所有库存不够的商品信息 （远程接口待开发）
+
+
+        // 4. 下单（创建订单及订单详情， 远程接口待开发）
+
+
+        // 5. 删除购物车 （发送消息删除购物车）
+
 
     }
 }

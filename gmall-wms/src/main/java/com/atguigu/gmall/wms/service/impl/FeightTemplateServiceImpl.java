@@ -5,7 +5,7 @@ import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.gmall.wms.dao.FeightTemplateDao;
 import com.atguigu.gmall.wms.service.FeightTemplateService;
-import com.atguigu.wms.entity.FeightTemplateEntity;
+import com.atguigu.gmall.wms.entity.FeightTemplateEntity;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

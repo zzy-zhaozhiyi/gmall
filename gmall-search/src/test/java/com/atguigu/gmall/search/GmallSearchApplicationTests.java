@@ -8,7 +8,7 @@ import com.atguigu.gmall.search.feign.GmallWmsClient;
 import com.atguigu.gmall.search.repository.GoodsRepository;
 import com.atguigu.gmall.search.vo.GoodsVO;
 import com.atguigu.gmall.search.vo.SearchAttrVO;
-import com.atguigu.wms.entity.WareSkuEntity;
+import com.atguigu.gmall.wms.entity.WareSkuEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

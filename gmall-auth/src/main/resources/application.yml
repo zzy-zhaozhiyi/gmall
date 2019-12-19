@@ -5,6 +5,8 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+  redis:
+    host: 192.168.191.128
 gmall:
   jwt:
     pubKeyPath: D:\workspace_idea0722\rsa\\rsa.pub # \u516C\u94A5\u5730\u5740
@@ -12,3 +14,8 @@ gmall:
     secret: sf3423jsdf#3$@FDS32
     expire: 30 # \u8FC7\u671F\u65F6\u95F4,\u5355\u4F4D\u5206\u949F
     cookieName: GMALL_TOKEN
+sms:
+  host: http://dingxin.market.alicloudapi.com
+  path: /dx/sendSms
+  method: POST
+  appcode: edffef5787c14a81b142b9414882c387

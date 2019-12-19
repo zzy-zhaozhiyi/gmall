@@ -1,6 +1,6 @@
 package com.atguigu.gmall.item.feign;
 
-import com.atguigu.wms.api.GmallWmsApi;
+import com.atguigu.gmall.wms.api.GmallWmsApi;
 import org.springframework.cloud.openfeign.FeignClient;
 
 /**

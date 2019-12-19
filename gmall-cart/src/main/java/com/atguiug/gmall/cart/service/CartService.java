@@ -8,7 +8,7 @@ import com.atguigu.gmall.cart.vo.CartVO;
 import com.atguigu.gmall.pms.entity.SkuInfoEntity;
 import com.atguigu.gmall.pms.entity.SkuSaleAttrValueEntity;
 import com.atguigu.gmall.sms.vo.SaleVO;
-import com.atguigu.wms.entity.WareSkuEntity;
+import com.atguigu.gmall.wms.entity.WareSkuEntity;
 import com.atguiug.gmall.cart.feign.GmallPmsClient;
 import com.atguiug.gmall.cart.feign.GmallSmsClient;
 import com.atguiug.gmall.cart.feign.GmallWmsClient;

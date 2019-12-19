@@ -5,7 +5,7 @@ import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.gmall.wms.dao.ShAreaDao;
 import com.atguigu.gmall.wms.service.ShAreaService;
-import com.atguigu.wms.entity.ShAreaEntity;
+import com.atguigu.gmall.wms.entity.ShAreaEntity;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

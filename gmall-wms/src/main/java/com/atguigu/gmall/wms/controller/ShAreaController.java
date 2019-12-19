@@ -4,7 +4,7 @@ import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
 import com.atguigu.gmall.wms.service.ShAreaService;
-import com.atguigu.wms.entity.ShAreaEntity;
+import com.atguigu.gmall.wms.entity.ShAreaEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

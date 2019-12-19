@@ -8,7 +8,7 @@ import com.atguigu.gmall.item.vo.ItemVO;
 import com.atguigu.gmall.pms.entity.*;
 import com.atguigu.gmall.pms.vo.ItemGroupVO;
 import com.atguigu.gmall.sms.vo.SaleVO;
-import com.atguigu.wms.entity.WareSkuEntity;
+import com.atguigu.gmall.wms.entity.WareSkuEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

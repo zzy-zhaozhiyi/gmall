@@ -3,8 +3,9 @@ package com.atguigu.gmall.wms.controller;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.wms.entity.WareSkuEntity;
 import com.atguigu.gmall.wms.service.WareSkuService;
-import com.atguigu.wms.entity.WareSkuEntity;
+import com.atguigu.gmall.wms.vo.SkuLockVO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,6 +18,7 @@ import java.util.List;
 
 /**
  * 商品库存
+ *
  * @author zhaozhiyi
  * @email 962815967@qq.com
  * @date 2019-12-02 19:07:07
@@ -28,9 +30,18 @@ public class WareSkuController {
 
     @Autowired
     private WareSkuService wareSkuService;
+
+    @ApiOperation("校验并锁定库存")
+    @PostMapping
+    public Resp<Object> checkAndLockStore(@RequestBody List<SkuLockVO> skuLockVOS) {
+
+        String msg = this.wareSkuService.checkAndLockStore(skuLockVOS);
+        return Resp.ok(msg);
+    }
+
     @ApiOperation("库存维护")
     @GetMapping("/{skuId}")
-    public  Resp<List<WareSkuEntity>> queryWareSkuBySkuId(@PathVariable("skuId") Long skuId){
+    public Resp<List<WareSkuEntity>> queryWareSkuBySkuId(@PathVariable("skuId") Long skuId) {
         List<WareSkuEntity> WareSkuEntity = this.wareSkuService.list(new QueryWrapper<WareSkuEntity>().eq("sku_id", skuId));
 
         return Resp.ok(WareSkuEntity);
@@ -55,8 +66,8 @@ public class WareSkuController {
     @ApiOperation("详情查询")
     @GetMapping("/info/{id}")
     @PreAuthorize("hasAuthority('wms:waresku:info')")
-    public Resp<WareSkuEntity> info(@PathVariable("id") Long id){
-		WareSkuEntity wareSku = wareSkuService.getById(id);
+    public Resp<WareSkuEntity> info(@PathVariable("id") Long id) {
+        WareSkuEntity wareSku = wareSkuService.getById(id);
 
         return Resp.ok(wareSku);
     }
@@ -67,8 +78,8 @@ public class WareSkuController {
     @ApiOperation("保存")
     @PostMapping("/save")
     @PreAuthorize("hasAuthority('wms:waresku:save')")
-    public Resp<Object> save(@RequestBody WareSkuEntity wareSku){
-		wareSkuService.save(wareSku);
+    public Resp<Object> save(@RequestBody WareSkuEntity wareSku) {
+        wareSkuService.save(wareSku);
 
         return Resp.ok(null);
     }
@@ -79,8 +90,8 @@ public class WareSkuController {
     @ApiOperation("修改")
     @PostMapping("/update")
     @PreAuthorize("hasAuthority('wms:waresku:update')")
-    public Resp<Object> update(@RequestBody WareSkuEntity wareSku){
-		wareSkuService.updateById(wareSku);
+    public Resp<Object> update(@RequestBody WareSkuEntity wareSku) {
+        wareSkuService.updateById(wareSku);
 
         return Resp.ok(null);
     }
@@ -91,8 +102,8 @@ public class WareSkuController {
     @ApiOperation("删除")
     @PostMapping("/delete")
     @PreAuthorize("hasAuthority('wms:waresku:delete')")
-    public Resp<Object> delete(@RequestBody Long[] ids){
-		wareSkuService.removeByIds(Arrays.asList(ids));
+    public Resp<Object> delete(@RequestBody Long[] ids) {
+        wareSkuService.removeByIds(Arrays.asList(ids));
 
         return Resp.ok(null);
     }
