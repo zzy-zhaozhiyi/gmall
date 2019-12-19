@@ -28,13 +28,10 @@ public class AuthService {
         Resp<MemberEntity> memberEntityResp = this.umsClient.queryMemberByNameAndPassword(username, password);
         MemberEntity memberEntity = memberEntityResp.getData();
 
-        System.out.println(memberEntity+"===========================这里是authService");
-
         if (memberEntity == null) {
             return null;
         }
         //制作jwt
-
         try {
             HashMap<String, Object> map = new HashMap<>();
             map.put("username", memberEntity.getUsername());
