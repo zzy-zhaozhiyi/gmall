@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff6833b4-5bb8-43e8-9c59-776153f709a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-auth/src/main/java/com/atguigu/gmall/auth/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-auth/src/main/java/com/atguigu/gmall/auth/service/AuthService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-order/src/main/java/com/atguigu/gmall/order/interceptors/LoginInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-order/src/main/java/com/atguigu/gmall/order/interceptors/LoginInterceptor.java" afterDir="false" />
-    </list>
+    <list default="true" id="ff6833b4-5bb8-43e8-9c59-776153f709a3" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/gmall-core/target/" />
     <ignored path="$PROJECT_DIR$/gmall-admin/target/" />
@@ -74,7 +70,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gmall-auth/src/main/java/com/atguigu/gmall/auth/controller/AuthController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="41">
               <caret line="78" column="9" lean-forward="true" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -104,6 +100,8 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -605,7 +603,7 @@
       <workItem from="1576628690044" duration="17000" />
       <workItem from="1576629045325" duration="16357000" />
       <workItem from="1576667369796" duration="12379000" />
-      <workItem from="1576719785998" duration="12145000" />
+      <workItem from="1576719785998" duration="12647000" />
     </task>
     <task id="LOCAL-00001" summary="配置完模块的基础">
       <created>1575293224748</created>
@@ -705,7 +703,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576739738900</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="完成提交订单中的构建远程调用检验库存的接口，和发送手机验证码的接口">
+      <created>1576745341102</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1576745341102</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -741,7 +746,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="356933000" />
+    <option name="totallyTimeSpent" value="357435000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -755,7 +760,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18674211" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18674211" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -773,11 +778,11 @@
       <window_info anchor="bottom" id="Spring" order="7" weight="0.3283859" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.5825603" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5012126" side_tool="true" weight="0.67903525" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.6378335" side_tool="true" weight="0.2857143" />
       <window_info anchor="bottom" id="Problems" order="11" weight="0.50278294" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3283859" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.4995958" weight="0.2857143" />
+      <window_info anchor="bottom" id="Version Control" order="14" sideWeight="0.36216652" weight="0.2857143" />
       <window_info anchor="bottom" id="Run Dashboard" order="15" sideWeight="0.4987874" weight="0.8979592" />
       <window_info anchor="bottom" id="Messages" order="16" weight="0.45083487" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1289,7 +1294,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gmall-auth/src/main/java/com/atguigu/gmall/auth/controller/AuthController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
+        <state relative-caret-position="41">
           <caret line="78" column="9" lean-forward="true" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
