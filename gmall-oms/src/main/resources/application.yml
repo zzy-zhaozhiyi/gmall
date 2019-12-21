@@ -13,7 +13,7 @@ spring:
   redis:
     host: 192.168.191.128
 mybatis-plus:
-  mapper-locations: classpath:mapper/pms/*.xml  # \u8BFB\u53D6\u6620\u5C04\u6587\u4EF6
+  mapper-locations: classpath:mapper/oms/**/*.xml  # \u8BFB\u53D6\u6620\u5C04\u6587\u4EF6
   global-config:
     db-config:
       id-type: auto  # \u9ED8\u8BA4\u4F7F\u7528\u6570\u636E\u5E93\u81EA\u589E

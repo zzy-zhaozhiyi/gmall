@@ -28,4 +28,5 @@ public interface GmallUmsApi {
     @ApiOperation("详情查询")
     @GetMapping("ums/member/info/{id}")
     public Resp<MemberEntity> queryMemberByUserId(@PathVariable("id") Long id);
+
 }

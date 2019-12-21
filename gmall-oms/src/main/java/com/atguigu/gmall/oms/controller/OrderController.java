@@ -1,20 +1,18 @@
 package com.atguigu.gmall.oms.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.oms.entity.OrderEntity;
+import com.atguigu.gmall.oms.service.OrderService;
+import com.atguigu.gmall.oms.vo.OrderSubmitVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gmall.oms.entity.OrderEntity;
-import com.atguigu.gmall.oms.service.OrderService;
+import java.util.Arrays;
 
 
 
@@ -32,6 +30,12 @@ import com.atguigu.gmall.oms.service.OrderService;
 public class OrderController {
     @Autowired
     private OrderService orderService;
+    @ApiOperation("保存订单")
+    @PostMapping
+    public Resp<OrderEntity> saveOrder(@RequestBody OrderSubmitVO submitVO){
+      OrderEntity orderEntity=  this.orderService.saveOrder(submitVO);
+      return Resp.ok(orderEntity);
+    }
 
     /**
      * 列表

@@ -17,9 +17,9 @@ import java.util.List;
 @Mapper
 public interface WareSkuDao extends BaseMapper<WareSkuEntity> {
 
-    void unLockStore(@Param("wareSkuId") Long wareSkuId, @Param("count") Integer count);
-
     List<WareSkuEntity> checkStore(@Param("skuId") Long skuId, @Param("count") Integer count);
 
-    void lockStore(@Param("id") Long id, @Param("count") Integer count);
+    int lockStore(@Param("id") Long id, @Param("count") Integer count);
+
+    int unLockStore(@Param("wareSkuId") Long wareSkuId, @Param("count") Integer count);
 }

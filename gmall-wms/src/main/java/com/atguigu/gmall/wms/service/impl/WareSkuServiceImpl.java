@@ -46,10 +46,9 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
         }
 
         // 1、检验并锁定库存,先通过这个对每个商品进行检查，是否满足有货的要求，有货是true,没货是false
-        skuLockVOS.forEach(skuLockVO -> {
-            lockStore(skuLockVO);
-        });
-       //2、检查后，过滤不符合有货要求的商品，并进行判空，有一个没成功锁定就全部回滚
+        skuLockVOS.forEach(skuLockVO -> this.lockStore(skuLockVO));
+
+        //2、检查后，过滤不符合有货要求的商品，并进行判空，有一个没成功锁定就全部回滚
         List<SkuLockVO> unLockSku = skuLockVOS.stream().filter(skuLockVO -> skuLockVO.getLock() == false).collect(Collectors.toList());
         if (!CollectionUtils.isEmpty(unLockSku)) {
             // 解锁已锁定商品的库存
@@ -66,7 +65,7 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
     }
 
     private void lockStore(SkuLockVO skuLockVO) {
-
+       //查询和锁要保证一致性，所以分布式锁
         RLock lock = this.redissonClient.getLock("stock:" + skuLockVO.getSkuId());
         lock.lock();
         // 查询剩余库存够不够

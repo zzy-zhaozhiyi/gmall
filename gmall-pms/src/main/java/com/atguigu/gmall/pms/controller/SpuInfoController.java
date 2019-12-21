@@ -46,11 +46,12 @@ public class SpuInfoController {
     }
 
     @PostMapping("/page")
-    public  Resp<List<SpuInfoEntity>> queryPage(@RequestBody QueryCondition queryCondition){
+    public Resp<List<SpuInfoEntity>> queryPage(@RequestBody QueryCondition queryCondition) {
         PageVo pageVo = this.spuInfoService.queryPage(queryCondition);
-        List<SpuInfoEntity> list =(List<SpuInfoEntity>) pageVo.getList();
-return Resp.ok(list);
+        List<SpuInfoEntity> list = (List<SpuInfoEntity>) pageVo.getList();
+        return Resp.ok(list);
     }
+
     /**
      * 列表
      */
@@ -98,7 +99,7 @@ return Resp.ok(list);
     public Resp<Object> update(@RequestBody SpuInfoEntity spuInfo) {
         spuInfoService.updateById(spuInfo);
         //下行代码完全是为了测验，在购物车cart进行的价格同步
-        this.amqpTemplate.convertAndSend(EXCHANGE_NAME, "item.update" , spuInfo.getId());
+        this.amqpTemplate.convertAndSend(EXCHANGE_NAME, "item.update", spuInfo.getId());
         return Resp.ok(null);
     }
 

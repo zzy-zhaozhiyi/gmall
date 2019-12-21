@@ -11,9 +11,12 @@ import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.BoundHashOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @author zzy
@@ -36,4 +39,19 @@ public class CartListener {
         List<SkuInfoEntity> skuInfoEntities = listResp.getData();
         skuInfoEntities.forEach(skuInfoEntity -> this.redisTemplate.opsForValue().set(AppConstant.PRICE_PREFIX + skuInfoEntity.getSkuId(), skuInfoEntity.getPrice().toString()));
     }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(value = "ORDER-CART-QUEUE", durable = "true"),
+            exchange = @Exchange(value = "GMALL-ORDER-EXCHANGE", ignoreDeclarationExceptions = "true", type = ExchangeTypes.TOPIC),
+            key = {"cart.delete"}
+    ))
+    public void deleteCart(Map<String, Object> map) {
+        BoundHashOperations<String, Object, Object> hashOps = this.redisTemplate.boundHashOps(AppConstant.KEY_PREFIX + map.get("userId"));
+        List<Object> skuIds = (List<Object>) map.get("skuIds");
+        List<String> skus = skuIds.stream().map(skuId -> skuId.toString()).collect(Collectors.toList());
+        String[] ids = skus.toArray(new String[skus.size()]);
+        hashOps.delete(ids);
+    }
+
+
 }

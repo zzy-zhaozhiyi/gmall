@@ -70,7 +70,7 @@ public class GmallCacheAspect {
             return result;
         }
         //进行了第二次的查询缓存，进行确认的话，还没有的话，就放一个请求去查询数据库放入缓存，其他的查缓存
-        result = point.proceed(point.getArgs());
+        result = point.proceed(point.getArgs());//执行目标方法，查询数据库
         this.stringRedisTemplate.opsForValue().set(key, JSON.toJSONString(result));
         rLock.unlock();
         return result;
