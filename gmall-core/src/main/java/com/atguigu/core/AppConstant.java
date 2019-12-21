@@ -8,4 +8,5 @@ public interface AppConstant {
     static final String PRICE_PREFIX = "gmall:currentPrice:";
     static final String KEY_PREFIX = "gmall:cart:";
     static final String TOKEN_PREFIX = "order:token:";
+    static final String STOCK_PREFIX = "stock:lock:";
 }

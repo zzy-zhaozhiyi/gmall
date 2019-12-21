@@ -1,5 +1,7 @@
 package com.atguigu.gmall.wms.service.impl;
 
+import com.alibaba.fastjson.JSON;
+import com.atguigu.core.AppConstant;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.Query;
 import com.atguigu.core.bean.QueryCondition;
@@ -12,7 +14,9 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -27,6 +31,10 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
     private RedissonClient redissonClient;
     @Autowired
     private WareSkuDao wareSkuDao;
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     @Override
     public PageVo queryPage(QueryCondition params) {
@@ -60,12 +68,20 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
             List<Long> skuIds = unLockSku.stream().map(SkuLockVO::getSkuId).collect(Collectors.toList());
             return "下单失败，商品库存不足：" + skuIds.toString();
         }
+        //2.1,库存都锁定成功，得到任意清单里都有的ordertoken,保存成功，将锁定商品信息保存，
+                                           // 以便提交订单失败，发送消息队列回滚锁定库存
+        String orderToken = skuLockVOS.get(0).getOrderToken();
+        this.redisTemplate.opsForValue().set(AppConstant.STOCK_PREFIX + orderToken, JSON.toJSONString(skuLockVOS));
+
+
+        // 2.2锁定成功，发送延时消息，定时解锁,这个是order服务调用时，成功，响应时失败的消息队列
+        this.amqpTemplate.convertAndSend("GMALL-ORDER-EXCHANGE", "stock.ttl", orderToken);
 
         return null;
     }
 
     private void lockStore(SkuLockVO skuLockVO) {
-       //查询和锁要保证一致性，所以分布式锁
+        //查询和锁要保证一致性，所以分布式锁
         RLock lock = this.redissonClient.getLock("stock:" + skuLockVO.getSkuId());
         lock.lock();
         // 查询剩余库存够不够

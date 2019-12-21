@@ -49,7 +49,7 @@ public class CartListener {
         BoundHashOperations<String, Object, Object> hashOps = this.redisTemplate.boundHashOps(AppConstant.KEY_PREFIX + map.get("userId"));
         List<Object> skuIds = (List<Object>) map.get("skuIds");
         List<String> skus = skuIds.stream().map(skuId -> skuId.toString()).collect(Collectors.toList());
-        String[] ids = skus.toArray(new String[skus.size()]);
+        String[] ids = skus.toArray(new String[skus.size()]);//这个处理很特别
         hashOps.delete(ids);
     }
 

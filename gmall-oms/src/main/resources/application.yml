@@ -12,6 +12,12 @@ spring:
     password: '0307'
   redis:
     host: 192.168.191.128
+  rabbitmq:
+    host: 192.168.191.128
+    port: 5673 #在虚拟机上我的5672端口被占用
+    username: zzy #rabbitmq的登录名字
+    password: zzy910307
+    virtual-host: /zzy
 mybatis-plus:
   mapper-locations: classpath:mapper/oms/**/*.xml  # \u8BFB\u53D6\u6620\u5C04\u6587\u4EF6
   global-config:

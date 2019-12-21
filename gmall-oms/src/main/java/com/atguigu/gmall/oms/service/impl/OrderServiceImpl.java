@@ -21,8 +21,10 @@ import com.atguigu.gmall.ums.entity.MemberReceiveAddressEntity;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -30,15 +32,16 @@ import java.util.List;
 
 @Service("orderService")
 public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> implements OrderService {
-   @Autowired
-   private GmallUmsClient umsClient;
+    @Autowired
+    private GmallUmsClient umsClient;
 
     @Autowired
     private OrderItemDao itemDao;
 
     @Autowired
     private GmallPmsClient pmsClient;
-
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
 
     @Override
@@ -51,6 +54,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
         return new PageVo(page);
     }
 
+    @Transactional
     @Override
     public OrderEntity saveOrder(OrderSubmitVO submitVO) {
         // 保存orderEntity
@@ -108,7 +112,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
 
             this.itemDao.insert(itemEntity);
         });
-
+        //订单创建成功，但是可能存在长时间停留在付款页面，导致长时间的停止，所以要及时关单，采用延时和死信队列
+        //消费方还是oms，不是order微服务，这样可以避免远程调用失败，造成的问题
+        // 订单创建之后，在响应之前发送延时消息，达到定时关单的效果
+        this.amqpTemplate.convertAndSend("GMALL-ORDER-EXCHANGE", "order.ttl", submitVO.getOrderToken());
 
         return orderEntity;
     }

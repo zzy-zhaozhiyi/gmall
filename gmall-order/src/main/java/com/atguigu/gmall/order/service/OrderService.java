@@ -206,13 +206,15 @@ public class OrderService {
             throw new OrderException(resp.getMsg());
         }
 
-
+        int i = 1 / 0;
         // 4. 下单（创建订单及订单详情， 远程接口待开发）
         try {
             submitVO.setUserId(userInfo.getId());
             OrderEntity orderEntity = this.omsClient.saveOrder(submitVO).getData();
         } catch (Exception e) {
             e.printStackTrace();
+            // 发送消息给wms，解锁对应的库存，保存出现异常，要及时回滚数据，用seata的性能太低了
+            this.amqpTemplate.convertAndSend("GMALL-ORDER-EXCHANGE", "stock.unlock", orderToken);
             throw new OrderException("创建订单失败，请联系服务人员");
         }
         // 5. 删除购物车 （发送消息删除购物车）,要根据userId和skuID来进行删除，因为我们用的是redis中的hash来存的<string,object,object>
@@ -226,3 +228,11 @@ public class OrderService {
 
     }
 }
+/*
+这里总结下订单调教在3、4、5步都是用到了mq
+3：解决的是，order中调用wms的checkandlock方法时，调用成功，响应失败的情况，这时要用到定时解锁库存，这个操作在checkandlock中进行这样
+避免远程调用失败的可能性，并有wmslistner监听私信队列，
+4：是远程时创建订单失败，也要进行解锁库存，不用延时和死信队列
+4：订单的定时关单，用户长时间的不付款，就要关单
+5：删除购物车
+ */
