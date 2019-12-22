@@ -37,6 +37,15 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>4.8.10.ALL</version>
+        </dependency>
+        <dependency>
             <groupId>com.atguigu</groupId>
             <artifactId>gmall-sms-interface</artifactId>
             <version>0.0.1-SNAPSHOT</version>
@@ -107,6 +116,12 @@
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.11.2</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

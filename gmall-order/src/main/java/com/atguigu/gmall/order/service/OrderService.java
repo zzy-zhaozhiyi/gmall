@@ -162,7 +162,7 @@ public class OrderService {
 
     }
 
-    public void submit(OrderSubmitVO submitVO) {
+    public OrderEntity submit(OrderSubmitVO submitVO) {
         UserInfo userInfo = LoginInterceptor.getUserInfo();
 
         // 1. 防重复提交，查询redis中有没有orderToken信息，有，则是第一次提交，放行并删除redis中的orderToken
@@ -170,7 +170,7 @@ public class OrderService {
         String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
         Long flag = this.redisTemplate.execute(new DefaultRedisScript<>(script, Long.class), Arrays.asList(AppConstant.TOKEN_PREFIX + orderToken), orderToken);
         if (flag == 0) {
-            new OrderException("订单不可重复提交");
+            throw new OrderException("订单不可重复提交");
         }
 
         // 2. 校验价格，总价一致放行
@@ -206,17 +206,20 @@ public class OrderService {
             throw new OrderException(resp.getMsg());
         }
 
-        int i = 1 / 0;
+
         // 4. 下单（创建订单及订单详情， 远程接口待开发）
+        OrderEntity orderEntity = null;
         try {
             submitVO.setUserId(userInfo.getId());
-            OrderEntity orderEntity = this.omsClient.saveOrder(submitVO).getData();
+            orderEntity = this.omsClient.saveOrder(submitVO).getData();
         } catch (Exception e) {
             e.printStackTrace();
             // 发送消息给wms，解锁对应的库存，保存出现异常，要及时回滚数据，用seata的性能太低了
             this.amqpTemplate.convertAndSend("GMALL-ORDER-EXCHANGE", "stock.unlock", orderToken);
             throw new OrderException("创建订单失败，请联系服务人员");
         }
+
+
         // 5. 删除购物车 （发送消息删除购物车）,要根据userId和skuID来进行删除，因为我们用的是redis中的hash来存的<string,object,object>
         //从拦截器中，获得userId
         Map<String, Object> map = new HashMap<>();
@@ -225,7 +228,10 @@ public class OrderService {
         List<Long> skuIds = orderItemVOS.stream().map(OrderItemVO::getSkuId).collect(Collectors.toList());
         map.put("skuIds", skuIds);
         this.amqpTemplate.convertAndSend("GMALL-ORDER-EXCHANGE", "cart.delete", map);
-
+        if (orderEntity == null) {
+            return null;
+        }
+        return orderEntity;
     }
 }
 /*

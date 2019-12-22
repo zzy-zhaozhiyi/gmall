@@ -85,7 +85,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
         orderEntity.setPayType(submitVO.getPayType());
         orderEntity.setTotalAmount(submitVO.getTotalPrice());
         orderEntity.setOrderSn(submitVO.getOrderToken());
-        this.save(orderEntity);
+         this.save(orderEntity);
         Long orderId = orderEntity.getId();
 
         // 保存订单详情OrderItemEntity
@@ -110,7 +110,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
             itemEntity.setSkuQuantity(item.getCount());
             itemEntity.setSpuName(spuInfoEntity.getSpuName());
 
-            this.itemDao.insert(itemEntity);
+             this.itemDao.insert(itemEntity);
         });
         //订单创建成功，但是可能存在长时间停留在付款页面，导致长时间的停止，所以要及时关单，采用延时和死信队列
         //消费方还是oms，不是order微服务，这样可以避免远程调用失败，造成的问题
