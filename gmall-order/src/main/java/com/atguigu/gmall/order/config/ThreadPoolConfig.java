@@ -12,6 +12,8 @@ public class ThreadPoolConfig {
 
     @Bean
     public ThreadPoolExecutor threadPoolExecutor(){
-        return new ThreadPoolExecutor(50, 200, 60, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10000));
+        return new ThreadPoolExecutor(50,
+                200, 60,
+                TimeUnit.SECONDS, new ArrayBlockingQueue<>(10000));
     }
 }

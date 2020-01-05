@@ -168,6 +168,7 @@ public class SearchService {
         }
         //构建查询条件构建器
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+
         //1.构建查询条件和过滤条件体,用到了查询工具
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
         //1.1构建查询条件
@@ -269,7 +270,6 @@ public class SearchService {
         SearchRequest searchRequest = new SearchRequest("goods");
         searchRequest.types("info");
         searchRequest.source(searchSourceBuilder);
-
         return searchRequest;
     }
 

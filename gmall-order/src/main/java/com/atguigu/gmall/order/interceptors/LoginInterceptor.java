@@ -24,7 +24,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     private static final ThreadLocal<UserInfo> THREAD_LOCAL = new ThreadLocal<>();
 
     /**
-     * 统一获取登陆状态
+     * 统一获取登陆状态,订单就不用判断是否有 userinfo里是否有userkey了。因为淡定订单肯定是登陆状态的
      * @param request
      * @param response
      * @param handler

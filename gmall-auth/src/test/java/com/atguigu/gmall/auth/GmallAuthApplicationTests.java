@@ -8,6 +8,8 @@ class GmallAuthApplicationTests {
 
     @Test
     void contextLoads() {
+        //几核电脑
+        System.out.println(Runtime.getRuntime().availableProcessors());
     }
 
 }

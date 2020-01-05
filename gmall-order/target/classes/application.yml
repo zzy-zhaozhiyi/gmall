@@ -1,0 +1,28 @@
+server:
+  port: 8092
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  rabbitmq:
+    host: 192.168.191.128
+    port: 5673 #在虚拟机上我的5672端口被占用
+    username: zzy #rabbitmq的登录名字
+    password: zzy910307
+    virtual-host: /zzy
+  redis:
+    host: 192.168.191.128
+gmall:
+  jwt:
+    pubKeyPath: D:\workspace_idea0722\rsa\\rsa.pub # 公钥地址
+    cookieName: GMALL_TOKEN
+alipay:
+  app_id: 2016101400688039
+  merchant_private_key: MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDEnVxWNgUsoBxLA9ZklxYOtRskuwehv/xNmlDT38WtMVXOYxbqSbhRKzGFa9HRWQp7tY5ii2TAbgpvG7eyXu2rRyXzTqxEDlwiAKgWZwG3nc/9t8h2tmNbhbclFOKdYoTdhNUZhciqDEOxFa+MEDANpZS3AwW6niqzxUkXXh2ODbrioX56cRrvNOdeuPCCVc0O/H5BCtVEXrxgYgK1+EhphrjtfJG9oMUiZwoFfPQ3pWr2ORJZtbn0fzv+o8SzyAqg2o6N5d/DZKaG6hF4EGtkzqswH4JQTPa/opcOmUASffDkMpDx8uOeJ1tTnVYLdTM9xTSv8Ak8z+WP5uEikd7/AgMBAAECggEAJp0dEFVlqMD9LYJgbbr6ewL4hLsyoYK6A2emLiZJhV0mE/WD/5lg2JgaDrEBMRNCqs8aWqIztFMoO2//IMnh9XxwqJsv2+HSGF92o4exX6Vfvt2EQkRJuSTGtkKmyvAZVgQLcgrDQRpNhQ7UPjbDqTp2vYabbm43xrydQTibp1UUuBnGOVTwKaKBBBPsykbonyjysCt2zY/qlTT0P2O2GusyZi5TfPTgeSfyyv9tPeTOx2o/p4hBOqRQJKyDqATppSpUq2Dp0Kc13W+eZAWE7+x9vTxjiLQ8FvQx6fS7yJRzjBa+rDn3R0uBeZaEQri+hwdDpV92d32oLnGs2fCF4QKBgQDtFPoip7puPWRBjm3h0MER0QJ4qhxQfSaPHDD0PGPxCXX2Gl0sEXwPeyNiuMeQjO7dhs3/qTDIbA5ALA7Aj/MFkhC+MsTXOQEw01YiMN9YgSUTn4lTePOAAhvJIF36dhf04wqMulMXowF4kRNAQwcYcwSFKvbRBiEWgSQOqpJQ7wKBgQDUTbvCT/7TEfz9HiR+cyImJdG6dsRffArEDCvvlFT2hRgS+PposKauGDqvLVF6jbFtbaXEHBq3rQwlteNa41u9PA7GUUWleo5KtQAUCpbzE7AA04150syhD9MLTp+4TvaUbaD4Z0Rkyck+h21tVSEqm9tiUJ8pjktd8W02C0sy8QKBgQC9BPuFA8s8t0+mgMMUxhYYeVaKE75tYcqLUQOqxjc8ZrmY1F4yk2IhCaElxYK+uc576k11J1SQhq459aZxWpN8fn9A1UNhAL71SZmjuulnK9f+tDSNy6IADi5PBbJHzT2+bgHsP2WeM8UpdikuFAKlOJaDAcU007kvsxinZNExGwKBgQDRckrM3XypoPJ0iJs6QL2s4tyw12DOTqKUXOmvdygG+LESbp0kUTpvQKoMjmn2vPkQ2v6RpaRaFpeIUJQW43xrCWgOELnkEi901nJYU0YuUvrtJchKKkQElYcAfbWm8Afl0O3ggoh/4m7uiE7VcQnCbnaV3LHZHm+OI5M5oRS0EQKBgC3P1vkRzMEZ8garNVQbbkAjbsVTNRFZX2B0HVfyx3lYOGvb7Lsksw16QMAnVPt7qdFMtxcTVUe9lfxHiijx8Q1XAGmrG4lK42b0b4LyREWR2+fgd+A6uyCOdz17iD8thEJS5HfK9LIe4TxYnN7VZLcp9GsohIqIymPUYKKJzBlI
+  alipay_public_key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzOLzxs+TAmHS/HzKX+3GSCztOotzCeOu/jLAi8XCKnUiaknNsN/pgdkY0AHo956nGHqnE2qgcrOlzQzFi1XVI2aVCZUFuwbxlsi4KjcQ/CoKGwGqu89jWlWARo6ArJfk9qzCYA4ltCvpG4T/pzlEMLhN/a0JW9F1lbomlBs6HD+MW+l0bm5H7WNC4Dg3uHPhGfN01jP6+ke0vmPQJyPgvI+iFWd2W84x3d2/A638fl6mybL0bUIAB1k6ftd2vgHcBS9EywSSJBPT6fMn1L0unU0WCw6LqrCKGZezfMxajWggnR9+yMKx+btd0foQizaABBGxRr4RHztzYrz7YN5PyQIDAQAB
+  notify_url: http://2h772942w2.qicp.vip/order/pay/success
+  return_url: http://baidu.com
+  sign_type: RSA2
+  gatewayUrl: https://openapi.alipaydev.com/gateway.do
+

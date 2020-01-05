@@ -1,0 +1,11 @@
+com\atguigu\gmall\oms\entity\RefundInfoEntity.class
+com\atguigu\gmall\oms\entity\OrderItemEntity.class
+com\atguigu\gmall\oms\api\GmallOmsApi.class
+com\atguigu\gmall\oms\entity\OrderEntity.class
+com\atguigu\gmall\oms\entity\OrderOperateHistoryEntity.class
+com\atguigu\gmall\oms\entity\OrderReturnApplyEntity.class
+com\atguigu\gmall\oms\entity\OrderSettingEntity.class
+com\atguigu\gmall\oms\vo\OrderItemVO.class
+com\atguigu\gmall\oms\vo\OrderSubmitVO.class
+com\atguigu\gmall\oms\entity\OrderReturnReasonEntity.class
+com\atguigu\gmall\oms\entity\PaymentInfoEntity.class

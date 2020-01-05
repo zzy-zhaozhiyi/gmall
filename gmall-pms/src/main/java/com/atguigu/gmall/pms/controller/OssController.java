@@ -18,7 +18,7 @@ import java.util.Map;
 @RequestMapping("pms/oss")
 public class OssController {
 
-    @GetMapping("policy")
+    @GetMapping("/policy")
     public Resp<Object> policy() {
 
         String accessId = "LTAI4FowTtHag2txXYUaB6dd"; // 请填写您的AccessKeyId。
@@ -27,7 +27,7 @@ public class OssController {
         String bucket = "zzyscw-20190722"; // 请填写您的 bucketname 。
         String host = "https://" + bucket + "." + endpoint; // host的格式为 bucketname.endpoint
         // callbackUrl为 上传回调服务器的URL，请将下面的IP和Port配置为您自己的真实信息。
-//        String callbackUrl = "http://88.88.88.88:8888";
+        // String callbackUrl = "http://88.88.88.88:8888";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String dir = simpleDateFormat.format(new Date()); // 用户上传文件时指定的前缀。
 

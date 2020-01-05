@@ -2,27 +2,26 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="gmall-item" />
-        <module name="gmall-sms-interface" />
         <module name="gmall-oms" />
-        <module name="gmall-pms" />
+        <module name="gmall-order" />
         <module name="gmall-cart" />
         <module name="gmall-sms" />
         <module name="gmall-ums" />
-        <module name="gmall-order" />
         <module name="gmall-wms" />
         <module name="gmall-pms-interface" />
-        <module name="gmall-admin" />
+        <module name="gmall-index" />
+        <module name="gmall-gateway" />
         <module name="gmall-wms-interface" />
         <module name="gmall-oms-interface" />
         <module name="gmall-ums-interface" />
-        <module name="gmall-gateway" />
-        <module name="gmall-index" />
+        <module name="gmall-pms" />
+        <module name="gmall-sms-interface" />
+        <module name="gmall-admin" />
         <module name="gmall-generator" />
         <module name="gmall-cart-interface" />
         <module name="gmall-core" />
@@ -47,14 +46,12 @@
       <module name="gmall-pms" target="1.8" />
       <module name="gmall-pms-interface" target="1.8" />
       <module name="gmall-search" target="1.8" />
-      <module name="gmall-search111" target="1.8" />
       <module name="gmall-sms" target="1.8" />
       <module name="gmall-sms-interface" target="1.8" />
       <module name="gmall-ums" target="1.8" />
       <module name="gmall-ums-interface" target="1.8" />
       <module name="gmall-wms" target="1.8" />
       <module name="gmall-wms-interface" target="1.8" />
-      <module name="index-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -70,11 +67,9 @@
       <module name="gmall-order" options="-parameters" />
       <module name="gmall-pms" options="-parameters" />
       <module name="gmall-search" options="-parameters" />
-      <module name="gmall-search111" options="-parameters" />
       <module name="gmall-sms" options="-parameters" />
       <module name="gmall-ums" options="-parameters" />
       <module name="gmall-wms" options="-parameters" />
-      <module name="index-service" options="-parameters" />
     </option>
   </component>
 </project>

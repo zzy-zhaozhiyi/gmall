@@ -68,7 +68,7 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
     public List<AttrGroupVO> queryAttrGroupVoByCatId(Long catId) {
         //根据分类的id来查询所有的attrgroupentities的集合
         List<AttrGroupEntity> attrGroupEntities = this.list(new QueryWrapper<AttrGroupEntity>().eq("catelog_id", catId));
-//通过调用上面的方法进行操作的，
+        //通过调用上面的方法进行操作的，
         return attrGroupEntities.stream().map(attrGroupEntity -> this.queryById(attrGroupEntity.getAttrGroupId())).collect(Collectors.toList());
 
     }

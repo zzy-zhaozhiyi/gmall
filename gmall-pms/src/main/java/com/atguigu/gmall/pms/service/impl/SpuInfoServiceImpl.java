@@ -67,7 +67,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     }
 
     @Override
-    public PageVo querySpuInfo(QueryCondition condition, Long catId) {
+    public PageVo   querySpuInfo(QueryCondition condition, Long catId) {
         QueryWrapper<SpuInfoEntity> wrapper = new QueryWrapper<>();
         if (catId != 0) {
             //==0是全局查了，！=0就是按照本类来查
@@ -79,7 +79,6 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             wrapper.and(t -> t.eq("id", key)).or().like("spu_name", key);
             //上面的sql语句是这样的select *from spuinfo where catid=225 and(id=key or spu_name = key)
         }
-
         IPage<SpuInfoEntity> page = this.page(
                 new Query<SpuInfoEntity>().getPage(condition),
                 wrapper
@@ -104,7 +103,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
         //2、保存sku相关的信息,不能批量保存，因为他们都是独立的表,每次保存sku相关信息也会保存sms打折等这些信息
         this.saveSkuInfoWithSaleInfo(spuInfoVo, spuId);
-        //就要用上这个方法
+        //就要用上这个方法,添加一个spu的时候，就将他发给es
         sendMsg("insert", spuId);
     }
 
@@ -176,7 +175,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             this.productAttrValueService.saveBatch(productAttrValueEntities);
         }
     }
-
+//这部分移到了spudesc中了，为了测试分布式事务
    /* private void saveSpuDesc(SpuInfoVo spuInfoVo, Long spuId) {
         SpuInfoDescEntity spuInfoDescEntity = new SpuInfoDescEntity();
         //这个附属表的id不是自增的，采用的是spuid的，但是我们设置了全局的自增，会没用，所以要在实体类进行修改成手动设置	@TableId(type = IdType.INPUT)

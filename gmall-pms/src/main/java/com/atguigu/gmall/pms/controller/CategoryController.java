@@ -22,7 +22,7 @@ import java.util.List;
  * @email 962815967@qq.com
  * @date 2019-12-02 18:52:56
  */
-@Api(tags = "商品三级分类 管理")
+@Api( "商品三级分类 管理")
 @RestController
 @RequestMapping("pms/category")
 public class CategoryController {

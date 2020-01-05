@@ -45,8 +45,6 @@ public class SkuBoundsController {
     public Resp<Object> saveSkuSaleVo(@RequestBody SkuSaleVo skuSaleVo) {
         this.skuBoundsService.saveSkuSaleVo(skuSaleVo);
 
-        System.out.println("这里是SMS的skuboundscontrller实现保存");
-
         return Resp.ok(null);
     }
 

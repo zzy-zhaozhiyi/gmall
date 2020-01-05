@@ -5,9 +5,9 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.Serializable;
-
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * spu信息介绍
@@ -25,7 +25,7 @@ public class SpuInfoDescEntity implements Serializable {
 	/**
 	 * 商品id
 	 */
-	@TableId(type= IdType.INPUT)
+	@TableId(type= IdType.INPUT)//不设置的话是自增的
 	@ApiModelProperty(name = "spuId",value = "商品id")
 	private Long spuId;
 	/**
