@@ -1,33 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e46e445-7abc-4ca6-8ee7-9173d50bcd17" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="0d5f84ac-fa72-4fa4-b897-e7edd8f4f15d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/gmall-admin/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-admin/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-auth/src/test/java/com/atguigu/gmall/auth/GmallAuthApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-auth/src/test/java/com/atguigu/gmall/auth/GmallAuthApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-core/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-item/src/main/java/com/atguigu/gmall/item/GmallItemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-item/src/main/java/com/atguigu/gmall/item/GmallItemApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-order/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-order/src/main/java/com/atguigu/gmall/order/config/ThreadPoolConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-order/src/main/java/com/atguigu/gmall/order/config/ThreadPoolConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-order/src/main/java/com/atguigu/gmall/order/interceptors/LoginInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-order/src/main/java/com/atguigu/gmall/order/interceptors/LoginInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-pms-interface/src/main/java/com/atguigu/gmall/pms/entity/SpuInfoDescEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-pms-interface/src/main/java/com/atguigu/gmall/pms/entity/SpuInfoDescEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-pms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-pms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-pms/src/main/java/com/atguigu/gmall/pms/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-pms/src/main/java/com/atguigu/gmall/pms/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-pms/src/main/java/com/atguigu/gmall/pms/controller/OssController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-pms/src/main/java/com/atguigu/gmall/pms/controller/OssController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-pms/src/main/java/com/atguigu/gmall/pms/service/impl/AttrGroupServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-pms/src/main/java/com/atguigu/gmall/pms/service/impl/AttrGroupServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-pms/src/main/java/com/atguigu/gmall/pms/service/impl/SpuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-pms/src/main/java/com/atguigu/gmall/pms/service/impl/SpuInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-search/src/main/java/com/atguigu/gmall/search/service/SearchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-search/src/main/java/com/atguigu/gmall/search/service/SearchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-sms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-sms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-sms/src/main/java/com/atguigu/gmall/sms/controller/SkuBoundsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-sms/src/main/java/com/atguigu/gmall/sms/controller/SkuBoundsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-wms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-wms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gmall-wms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-wms/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/gmall-search/META-INF/gmall-search.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-admin/gmall-admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-admin/gmall-admin.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-admin/target/gmall-admin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-admin/target/gmall-admin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-admin/target/gmall-admin.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-admin/target/gmall-admin.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-auth/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-auth/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-auth/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-auth/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-auth/gmall-auth.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-auth/src/main/java/com/atguigu/gmall/auth/GmallAuthApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-auth/src/main/java/com/atguigu/gmall/auth/GmallAuthApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-cart-interface/target/gmall-cart-interface-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-cart-interface/target/gmall-cart-interface-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-cart/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-cart/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-cart/gmall-cart.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-core/target/gmall-core-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-core/target/gmall-core-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-core/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-gateway/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-gateway/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-gateway/gmall-gateway.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-generator/gmall-generator.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-index/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-index/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-index/gmall-index.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-item/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-item/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-item/gmall-item.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-oms-interface/target/gmall-oms-interface-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-oms-interface/target/gmall-oms-interface-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-oms/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-oms/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-oms/gmall-oms.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-order/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-order/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-order/gmall-order.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-pms-interface/target/gmall-pms-interface-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-pms-interface/target/gmall-pms-interface-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-pms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-pms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-pms/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-pms/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-pms/gmall-pms.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-pms/src/main/java/com/atguigu/gmall/pms/GmallPmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-pms/src/main/java/com/atguigu/gmall/pms/GmallPmsApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-search/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-search/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-search/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-search/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-search/gmall-search.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-sms-interface/target/gmall-sms-interface-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-sms-interface/target/gmall-sms-interface-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-sms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-sms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-sms/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-sms/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-sms/gmall-sms.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-ums-interface/target/gmall-ums-interface-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-ums-interface/target/gmall-ums-interface-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-ums/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-ums/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-ums/gmall-ums.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-wms-interface/target/gmall-wms-interface-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-wms-interface/target/gmall-wms-interface-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-wms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-wms-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-wms/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/gmall-wms/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gmall-wms/gmall-wms.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,33 +62,25 @@
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="localRepository" value="D:\developer_tools\RepMaven" />
         <option name="mavenHome" value="D:/developer_tools/apache-maven-3.5.4" />
         <option name="userSettingsFile" value="D:\developer_tools\apache-maven-3.5.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="1.8" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
   </component>
-  <component name="ProjectId" id="1VxIrLbirWpCQFpibibOx2VEu3b" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1W0J4T0fB6bvnoMUoZW3OlYwaiu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -73,14 +90,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gmall-gateway/pom.xml" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -89,7 +105,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GmallAdminMainApplication">
+  <component name="RunManager" selected="Spring Boot.GmallItemApplication">
     <configuration name="GmallAdminMainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="gmall-admin" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.atguigu.GmallAdminMainApplication" />
@@ -194,17 +210,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Not Started" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -216,13 +222,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1e46e445-7abc-4ca6-8ee7-9173d50bcd17" name="Default Changelist" comment="" />
-      <created>1578188516397</created>
+      <changelist id="0d5f84ac-fa72-4fa4-b897-e7edd8f4f15d" name="Default Changelist" comment="" />
+      <created>1578280388189</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1578188516397</updated>
-      <workItem from="1578188523434" duration="5877000" />
-      <workItem from="1578194429830" duration="1033000" />
+      <updated>1578280388189</updated>
+      <workItem from="1578280393972" duration="3945000" />
     </task>
     <servers />
   </component>
@@ -230,13 +235,41 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="577" y="45" key="FileChooserDialogImpl" timestamp="1578194913751">
+    <state x="371" y="39" key="FileChooserDialogImpl" timestamp="1578282607028">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="577" y="45" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1578194913751" />
-    <state x="44" y="0" key="SettingsEditor" timestamp="1578195213180">
+    <state x="371" y="39" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1578282607028" />
+    <state width="834" height="403" key="GridCell.Tab.0.bottom" timestamp="1578282441591">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="44" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1578195213180" />
+    <state width="834" height="403" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578282441591" />
+    <state width="834" height="403" key="GridCell.Tab.0.center" timestamp="1578282441591">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="834" height="403" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1578282441591" />
+    <state width="834" height="403" key="GridCell.Tab.0.left" timestamp="1578282441590">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="834" height="403" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1578282441590" />
+    <state width="834" height="403" key="GridCell.Tab.0.right" timestamp="1578282441591">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="834" height="403" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1578282441591" />
+    <state width="834" height="403" key="GridCell.Tab.1.bottom" timestamp="1578282441591">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="834" height="403" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1578282441591" />
+    <state width="834" height="403" key="GridCell.Tab.1.center" timestamp="1578282441591">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="834" height="403" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1578282441591" />
+    <state width="834" height="403" key="GridCell.Tab.1.left" timestamp="1578282441591">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="834" height="403" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1578282441591" />
+    <state width="834" height="403" key="GridCell.Tab.1.right" timestamp="1578282441591">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="834" height="403" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1578282441591" />
   </component>
 </project>

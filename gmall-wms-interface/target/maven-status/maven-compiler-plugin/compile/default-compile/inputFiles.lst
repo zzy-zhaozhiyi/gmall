@@ -1,7 +1,8 @@
-D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\wms\api\GmallWmsApi.java
-D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\wms\entity\WareOrderTaskEntity.java
-D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\wms\entity\ShAreaEntity.java
-D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\wms\entity\FeightTemplateEntity.java
-D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\wms\entity\WareOrderTaskDetailEntity.java
-D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\wms\entity\WareSkuEntity.java
-D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\wms\entity\WareInfoEntity.java
+D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\gmall\wms\api\GmallWmsApi.java
+D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\gmall\wms\entity\ShAreaEntity.java
+D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\gmall\wms\entity\WareOrderTaskDetailEntity.java
+D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\gmall\wms\entity\WareInfoEntity.java
+D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\gmall\wms\entity\WareOrderTaskEntity.java
+D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\gmall\wms\entity\FeightTemplateEntity.java
+D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\gmall\wms\vo\SkuLockVO.java
+D:\workspace_idea0722\gmall\gmall-wms-interface\src\main\java\com\atguigu\gmall\wms\entity\WareSkuEntity.java
