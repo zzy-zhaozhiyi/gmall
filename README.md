@@ -3,7 +3,7 @@
 妮好
 项目需要启动的软件
 1、nacos 是安装在本机中的（127.0.0.1：8848）
-2、es、kibana、ik安装咋虚拟机上，systemctl start es.  cd /opt/kibana/bin -> (非阻塞式启动)nohup ./kibana
+2、es、kibana、ik安装在虚拟机上，systemctl start es.  cd /opt/kibana/bin -> (非阻塞式启动)nohup ./kibana
 3、rabbitmq是通过虚拟机的docker镜像拉取，由于java端口冲突由5672变成5673 启动 systemctl start docker -> docker ps -a (查看id) ->docker start id
    各种消息队列的应用，定时关单，库存解锁用的演示队列和死信队列
 4、seata 二阶段提交，性能比较低，但用起来方便，只需要配置数据源代理，加两个自己特有的配置文件（目前和spring boot整合的不是很好，所以需要加）
