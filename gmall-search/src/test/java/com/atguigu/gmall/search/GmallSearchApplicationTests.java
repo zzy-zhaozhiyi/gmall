@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,7 +27,7 @@ class GmallSearchApplicationTests {
     private GmallPmsClient pmsClient;
     @Autowired
     private GmallWmsClient wmsClient;
-    @Autowired
+    @Resource
     private GoodsRepository goodsRepository;
 
     @Test

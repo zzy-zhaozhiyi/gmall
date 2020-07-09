@@ -26,6 +26,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -37,11 +38,11 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
     @Autowired
     private ProductAttrValueService productAttrValueService;
-    @Autowired
+    @Resource
     private SpuInfoDescDao descDao;
     @Autowired
     private SpuInfoDescService spuInfoDescService;
-    @Autowired
+    @Resource
     private SkuInfoDao skuInfoDao;
     @Autowired
     private SkuImagesService skuImagesService;
@@ -80,8 +81,8 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             //上面的sql语句是这样的select *from spuinfo where catid=225 and(id=key or spu_name = key)
         }
         IPage<SpuInfoEntity> page = this.page(
-                new Query<SpuInfoEntity>().getPage(condition),
-                wrapper
+                        new Query<SpuInfoEntity>().getPage(condition),
+                        wrapper
         );
 
         return new PageVo(page);

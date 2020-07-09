@@ -39,7 +39,6 @@ public class CartService {
     private StringRedisTemplate redisTemplate;
 
 
-
     public void addCart(CartVO cartvo) {
 
         //先判断是否登录,通过ThreadLocal提供的方法，获得拦截信息
@@ -52,7 +51,6 @@ public class CartService {
         }                                 //redis中的hasn<string,<string,object>>
         //我们购物车采用的是redis中hash结构<user,map<skuid,cart>>类似这样的结构，所以采用下面的这种方式操作hash更好点
         BoundHashOperations<String, Object, Object> hashOps = this.redisTemplate.boundHashOps(key);
-
         //判断是否存在购物车，根据map中是否含有skuid
         String skuId = cartvo.getSkuId().toString();//redis中的都是字符串，所以也必须转成字符串，放进去查询，不然没用
 
@@ -78,7 +76,6 @@ public class CartService {
 
             //价格存两份，实时的价格在redis中的结构是{skuid,currentPrice}
             this.redisTemplate.opsForValue().set(AppConstant.PRICE_PREFIX + skuInfoEntity.getSkuId(), skuInfoEntity.getPrice().toString());
-
 
 
             Resp<List<SkuSaleAttrValueEntity>> value = this.pmsClient.querySkuSaleAttrValueBySkuId(cartvo.getSkuId());
@@ -110,8 +107,8 @@ public class CartService {
         List<CartVO> unLoginVOS = null;//下面要用所以拿出来
         if (!CollectionUtils.isEmpty(values)) {
             unLoginVOS = values.stream().map(value -> {
-
-                        CartVO cartVO = JSON.parseObject(value.toString(), CartVO.class);//解析第一个是参数是string，value是objet，所以需要强转
+                         CartVO cartVO = JSON.parseObject(value.toString(), CartVO.class);//解析第一个是参数是string，value
+                // 是objet，所以需要强转
 
                         String price = this.redisTemplate.opsForValue().get(AppConstant.PRICE_PREFIX + cartVO.getSkuId());
                         cartVO.setCurrentPrice(new BigDecimal(price));
@@ -146,7 +143,7 @@ public class CartService {
                     loginOps.put(skuId, JSON.toJSONString(cartVO));
 
                 } else {
-                        //添加实时的价格同步
+                    //添加实时的价格同步
                     String price = this.redisTemplate.opsForValue().get(AppConstant.PRICE_PREFIX + skuId);
                     unLoginVO.setCurrentPrice(new BigDecimal(price));
 
@@ -205,8 +202,6 @@ public class CartService {
         BoundHashOperations<String, Object, Object> hashOps = this.redisTemplate.boundHashOps(key);
         hashOps.delete(skuid.toString());
         //之所以有tostring,记住redis的结构是<string,<string,object>>
-
-
     }
 
     public List<CartVO> queryCheckAndCartByUserId(Long userId) {

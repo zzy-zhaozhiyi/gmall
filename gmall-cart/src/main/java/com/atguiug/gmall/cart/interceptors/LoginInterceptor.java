@@ -26,7 +26,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {//通过配置�
     @Autowired
     private JwtProperties properties;
 
-    private static final ThreadLocal<UserInfo> THREAD_LOCAL = new ThreadLocal<>();//另一种将值传递的方式放进request域中，进行传值，但是看着没有这个看起来优雅
+    private static final ThreadLocal<UserInfo> THREAD_LOCAL = new ThreadLocal<>();
+    //另一种将值传递的方式放进request域中，进行传值，但是看着没有这个看起来优雅
 
 
     @Override

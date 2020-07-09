@@ -15,7 +15,6 @@ import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
@@ -28,8 +27,6 @@ import java.util.stream.Collectors;
 @Configuration
 public class GoodsListener {
 
-    @Autowired
-    private ElasticsearchRestTemplate restTemplate;
     @Autowired
     private GmallPmsClient pmsClient;
     @Autowired

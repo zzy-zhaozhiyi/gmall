@@ -8,6 +8,6 @@ import lombok.Data;
  * @create 2019-12-04 16:35
  */
 @Data
-public class AttrVo extends AttrEntity {
+public class AttrVo extends AttrEntity  {
     private Long attrGroupId;
 }

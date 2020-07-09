@@ -40,6 +40,7 @@ public class wareListener {
         if (StringUtils.isEmpty(lockJson)) {
             return;
         }
+
         List<SkuLockVO> skuLockVOS = JSON.parseArray(lockJson, SkuLockVO.class);
         skuLockVOS.forEach(skuLockVO -> {
             this.wareSkuDao.unLockStore(skuLockVO.getWareSkuId(), skuLockVO.getCount());

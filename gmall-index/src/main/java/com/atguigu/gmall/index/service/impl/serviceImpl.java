@@ -39,7 +39,6 @@ public class serviceImpl implements IndexService {
     public List<CategoryVo> querySubCategery(Long pid) {
 
 
-
         Resp<List<CategoryVo>> listResp = gmallPmsClient.querySubCategory(pid);
         return listResp.getData();
 }

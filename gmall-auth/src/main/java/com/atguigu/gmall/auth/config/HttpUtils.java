@@ -44,8 +44,8 @@ public class HttpUtils {
 	 * @throws Exception
 	 */
 	public static HttpResponse doGet(String host, String path, String method,
-									 Map<String, String> headers,
-									 Map<String, String> querys)
+										  Map<String, String> headers,
+										  Map<String, String> querys)
 			throws Exception {
 		HttpClient httpClient = wrapClient(host);
 

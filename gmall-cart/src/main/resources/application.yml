@@ -18,4 +18,3 @@ gmall:
     pubKeyPath: D:\workspace_idea0722\rsa\\rsa.pub # 公钥地址
     cookieName: GMALL_TOKEN
     userKey: user-key
-
